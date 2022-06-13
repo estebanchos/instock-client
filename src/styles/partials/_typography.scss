@@ -1,25 +1,18 @@
-$Avenir-regular: "Avenir";
-$Avenir-demi: "AvenirNextLTPro-Demi";
-$Avenir-bold: "AvenirNextLTPro-Bold";
+$Titillium-Web-Regular: "Titillium Web Regular 400";
+$Titillium-Web-Semi-bold: "Titillium Web Semi-bold 600";
 
+// Titillium Web Regular 400
 @font-face {
-  font-family: "Avenir";
-  src: url("../../assets/font/AvenirNextLTPro-Regular.otf") format("otf");
+  font-family: "Titillium Web Regular 400";
+  src: url("https://fonts.google.com/specimen/Titillium+Web") format("otf");
 
   font-weight: 400;
 }
 
-// Avenir Next Demi - 600
+// Titillium Web Semi-bold 600
 @font-face {
-  font-family: "Avenir";
-  src: url("../../assets/font/AvenirNextLTPro-Regular.otf") format("otf");
+  font-family: "Titillium Web Semi-bold 600";
+  src: url("https://fonts.google.com/specimen/Titillium+Web") format("otf");
 
   font-weight: 600;
-}
-// Avenir Next Bold - 700
-@font-face {
-  font-family: "Avenir";
-  src: url("../../assets/font/AvenirNextLTPro-Bold.otf") format("otf");
-
-  font-weight: 700;
 }
