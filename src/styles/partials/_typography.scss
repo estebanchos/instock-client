@@ -1,18 +1,13 @@
-$Titillium-Web-Regular: "Titillium Web Regular 400";
-$Titillium-Web-Semi-bold: "Titillium Web Semi-bold 600";
-
 // Titillium Web Regular 400
 @font-face {
-  font-family: "Titillium Web Regular 400";
-  src: url("https://fonts.google.com/specimen/Titillium+Web") format("otf");
-
+  font-family: "Titillium Web";
+  src: url("../../assets/fonts/TitilliumWeb-Regular.ttf") format("truetype");
   font-weight: 400;
 }
 
 // Titillium Web Semi-bold 600
 @font-face {
-  font-family: "Titillium Web Semi-bold 600";
-  src: url("https://fonts.google.com/specimen/Titillium+Web") format("otf");
-
+  font-family: "Titillium Web";
+  src: url("../../assets/fonts/TitilliumWeb-SemiBold.ttf") format("truetype");
   font-weight: 600;
 }
