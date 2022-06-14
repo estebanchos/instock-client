@@ -16,3 +16,9 @@ html {
     font-family: 'Titillium Web';
     color: $instock-black;
   }
+
+  a {
+    text-decoration: none;
+    color: $white;
+    cursor: pointer;
+  }
