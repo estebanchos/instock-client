@@ -5,7 +5,7 @@ import Header from './components/Header/Header';
 import Footer from './components/Footer/Footer';
 import Warehouses from './components/Warehouses/Warehouses';
 import Inventories from './components/Inventories/Inventories';
-import InventoryForm from './components/InventoryForm/InventoryForm';
+import NewInventoryPage from './pages/NewInventoryPage/NewInventoryPage';
 
 class App extends Component {
 
@@ -15,19 +15,14 @@ class App extends Component {
         <BrowserRouter>
           <Header />
           <Switch>
-            <Route path="/" component={Warehouses} />
-            <Route path="/inventories" component={Inventories} />
-<<<<<<< HEAD
-          </Switch>
-=======
+            <Route path="/" exact component={Warehouses} />
+            <Route path="/inventories" exact component={Inventories} />
             {/* <Route path="/warehouses/:warehouseId" component={WarehouseDetails} /> */}
+            <Route path='/inventories/inventory/new' component={NewInventoryPage} />
           </Switch> 
->>>>>>> b89c60b597ea45e239ff7d1bec7858e1220148d2
           <Footer />
-          <Route path='/' component={InventoryForm} />
         </BrowserRouter>
       </div>
-
     );
   }
 }

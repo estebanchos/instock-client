@@ -115,7 +115,6 @@ class InventoryForm extends Component {
             }
             axios.post(newItemUrl, newItem)
                 .then(_res => {
-                    console.log("successful post")
                     setTimeout(() => this.returnToInventory(), 1000);
                 })
                 .catch(err => {
@@ -129,7 +128,6 @@ class InventoryForm extends Component {
     }
 
     render() {
-        console.log(this.props)
         return (
             <form className='inventory-item' onSubmit={this.handleSubmit}>
                 <section className='inventory-item__form-inputs'>
