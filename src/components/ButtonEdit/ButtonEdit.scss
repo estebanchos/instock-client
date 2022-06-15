@@ -20,4 +20,11 @@
         margin-right: 0.25rem;
     }
 
+    &__action {
+        display: none;
+        @include tablet {
+            display: inline-block;
+        }
+    }
+
 }
