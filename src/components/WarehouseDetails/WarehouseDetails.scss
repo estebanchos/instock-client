@@ -3,7 +3,7 @@
 @use '../../styles/partials/mixins' as *;
 @use '../../styles/partials/variables' as *;
 
-.main {
+.warehouse-inv {
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -43,4 +43,3 @@
         }
     }
 }
-                
