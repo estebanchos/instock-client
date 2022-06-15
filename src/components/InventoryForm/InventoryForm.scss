@@ -1,0 +1,45 @@
+@use '../../styles/global.scss' as *;
+@use '../../styles/partials/colors' as *;
+@use '../../styles/partials/mixins' as *;
+@use '../../styles/partials/variables' as *;
+
+input {
+    border-radius: 20px;
+    color: $instock-black;
+
+    &::placeholder {
+        color: $slate;
+        font-family: 'Titillium Web';
+    }
+}
+
+label {
+    margin-bottom: 0.25rem;
+    color: $instock-black;
+    font-weight: 600;
+}
+
+.inventory-item {
+    &__form-inputs{}
+    &__form-actions{
+        background-color: $light-grey;
+    }
+    &__details{}
+    &__availability{}
+    &__input-container{
+        display: flex;
+        flex-direction: column;
+    }
+    &__radio-container{
+        display: flex;
+    }
+    &__dropdown {
+        border-radius: 20px;
+    }
+}
+
+.radio {
+    &__option {
+
+    }
+}
