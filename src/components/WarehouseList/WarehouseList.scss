@@ -1,0 +1,97 @@
+@use '../../styles/global.scss' as *;
+@use '../../styles/partials/colors' as *;
+@use '../../styles/partials/mixins' as *;
+@use '../../styles/partials/variables' as *;
+
+.warehouse-list {
+
+    &__titles {
+        display: none;
+        padding: 0 1rem;
+        background-color: $light-grey;
+        width: 100%;
+
+        @include tablet {
+            display: flex;
+        }
+
+        &--name {
+
+            @include tablet {
+                width: 20%;
+            }
+
+            @include desktop {
+                width: 15%;
+            }
+        }
+
+        &--address {
+
+            @include tablet {
+                width: 20%;
+            }
+
+            @include desktop {
+                width: 25%;
+            }
+        }
+
+        &--contact {
+
+            @include tablet {
+                width: 20%;
+            }
+
+            @include desktop {
+                width: 25%;
+            }
+        }
+
+        &--info {
+
+            @include tablet {
+                width: 20%;
+            }
+
+            @include desktop {
+                width: 15%;
+            }
+        }
+
+        &--action {
+            display: flex;
+            justify-content: center;
+
+            @include tablet {
+                width: 20%;
+            }
+
+            @include desktop {
+                width: 15%;
+                justify-content: flex-end;
+            }
+        }
+    }
+
+    &__titles-title {
+        font-size: 0.65rem;
+        color: $slate;
+        display: flex;
+        align-items: center;
+    }
+
+    &__titles-icon {
+        width: 1rem;
+        height: 1rem
+    }
+
+    &__items {
+        list-style-type: none;
+        margin: 0;
+    }
+    
+    &__item {
+       
+    }
+}
