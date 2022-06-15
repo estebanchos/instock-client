@@ -1,0 +1,43 @@
+@use '../../styles/global.scss' as *;
+@use '../../styles/partials/colors' as *;
+@use '../../styles/partials/mixins' as *;
+@use '../../styles/partials/variables' as *;
+
+.warehouse {
+    border-bottom: 1px solid $cloud; 
+    
+    &__name {
+
+    }
+
+    &__address {
+        
+    }
+
+    &__contact-name {
+        
+    }
+
+    &__contact-info {
+        
+    }
+
+    &__icons {
+        
+    }
+
+    &__title {
+        font-size: $m-h4-text-size;
+    }
+    
+    &__input {
+        font-size: $m-p2-text-size;
+        color: $slate;
+        display: flex;
+        margin: 0;
+    }
+
+    &__link {
+        color: $instock-indigo;
+    }
+}

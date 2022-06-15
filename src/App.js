@@ -15,7 +15,7 @@ class App extends Component {
         <BrowserRouter>
           <Header />
           <Switch>
-            <Route path="/warehouses" component={Warehouses} />
+            <Route path="/" component={Warehouses} />
             <Route path="/inventories" component={Inventories} />
           </Switch> 
           <Footer />
