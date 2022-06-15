@@ -9,21 +9,20 @@
     display: flex;
     flex-direction: column;
     width: 100%;
-    margin: 0;
-        padding: 0;
-    @include tablet{
-        
+    @include tablet{ 
     }
+
     &__info{
-        border: 2px solid violet;
+        // border: 1px solid violet;
         display: flex;
         justify-content: space-between;
         align-items: flex-start;
         width: 100%;
+       
         
     }
     &__info-left{
-        border: 1px solid green;
+        // border: 1px solid green;
         display: flex;
         flex-direction: column;
         align-items: flex-start;
@@ -31,17 +30,24 @@
         width: 50%;
         
     }
+
     &__subheader{
+        font-size: $m-h4-text-size;
+        line-height: $m-h4-line-height;
+        color: $slate;
         
     }
+
     &__link{
         
     }
+
     &__item{
-        
+        font-size: $m-p3-text-size;
     }
+
     &__info-right{
-        border: 1px solid yellowgreen;
+        // border: 1px solid yellowgreen;
         display: flex;
         flex-direction: column;
         align-items: flex-start;

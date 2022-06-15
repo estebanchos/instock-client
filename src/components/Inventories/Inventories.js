@@ -34,7 +34,8 @@ class Inventories extends React.Component {
         return (
             <section className='inventory'>
                     {/* this line is for testing my component */}
-                    {/* <PageHeaderB headerTitle="For Testing"/> */}
+                    <PageHeaderB headerTitle="For Testing"/>
+
                     <h1 className='inventory__title'>Inventory</h1>
                     <input 
                         className='inventory__searchbar' 
