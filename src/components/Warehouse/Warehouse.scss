@@ -4,37 +4,52 @@
 @use '../../styles/partials/variables' as *;
 
 .warehouse {
-    border-bottom: 1px solid $cloud; 
+    border-top: 1px solid $cloud; 
+    display: flex;
+    flex-wrap: wrap;
+    padding: 1rem;
     
     &__name {
-
+        width: 50%;
+        padding-bottom: 1rem;
     }
 
     &__address {
-        
+        width: 50%;
+        order: 3;
+        padding-right: 1rem;
     }
 
     &__contact-name {
-        
+        width: 50%;
+        order: 2;
     }
 
     &__contact-info {
-        
+        width: 50%;
+        order: 4;
+        padding-right: 1rem;
     }
 
     &__icons {
-        
+        order: 5;
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        padding-top: 1rem;
     }
 
     &__title {
-        font-size: $m-h4-text-size;
+        font-size: 0.6rem;
+        color: $slate;
     }
     
     &__input {
-        font-size: $m-p2-text-size;
-        color: $slate;
+        font-size: 0.7rem;
         display: flex;
+        align-items: center;
         margin: 0;
+
     }
 
     &__link {

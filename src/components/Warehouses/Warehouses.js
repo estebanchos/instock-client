@@ -2,6 +2,7 @@ import './Warehouses.scss';
 import { Component } from 'react';
 import WarehouseList from '../WarehouseList/WarehouseList';
 import axios from 'axios';
+import ListHeader from '../ListHeader/ListHeader';
 
 class Warehouses extends Component {
     state = { 
@@ -21,12 +22,10 @@ class Warehouses extends Component {
     render() { 
         return (
             <main className='main'>
-                <div className='main__header'>
-                    <h1 className='main__header-title'>Warehouses</h1>
-                    <input type='text' name='search' className='main__header-search'placeholder='Search...'></input>
-                    {/* <Button/> */}
-                </div>
-                <WarehouseList warehouses={this.state.warehouses}/>
+                    <section className='main__inner'>
+                    <ListHeader listName='Warehouses' buttonText='+Add New Warehouse' />
+                    <WarehouseList warehouses={this.state.warehouses}/>
+                </section>
             </main>
         );
     }
