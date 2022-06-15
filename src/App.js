@@ -5,6 +5,7 @@ import Header from './components/Header/Header';
 import Footer from './components/Footer/Footer';
 import Warehouses from './components/Warehouses/Warehouses';
 import Inventories from './components/Inventories/Inventories';
+import InventoryForm from './components/InventoryForm/InventoryForm';
 
 class App extends Component {
 
@@ -16,10 +17,12 @@ class App extends Component {
           <Switch>
             <Route path="/warehouses" component={Warehouses} />
             <Route path="/inventories" component={Inventories} />
-          </Switch> 
+          </Switch>
           <Footer />
+          <Route path='/' component={InventoryForm} />
         </BrowserRouter>
       </div>
+
     );
   }
 }
