@@ -1,0 +1,121 @@
+@use '../../styles/global.scss' as *;
+@use '../../styles/partials/colors' as *;
+@use '../../styles/partials/mixins' as *;
+@use '../../styles/partials/variables' as *;
+
+.warehouse {
+    border-top: 1px solid $cloud; 
+    display: flex;
+    flex-wrap: wrap;
+    padding: 1rem;
+
+    @include tablet {
+        flex-wrap: nowrap;
+        align-items: center;
+        padding: 1rem;
+    }
+    
+    &__name {
+        width: 50%;
+        padding-bottom: 1rem;
+
+        @include tablet {
+            width: 20%;
+            padding: 0;
+        }
+
+        @include desktop {
+            width: 15%;
+        }
+    }
+
+    &__address {
+        width: 50%;
+        order: 3;
+        padding-right: 1rem;
+
+        @include tablet {
+            order: 2;
+            width: 20%;
+        }
+
+        @include desktop {
+            width: 25%;
+        }
+    }
+
+    &__contact-name {
+        width: 50%;
+        order: 2;
+
+        @include tablet {
+            order: 3;
+            width: 20%;
+        }
+
+        @include desktop {
+            width: 25%;
+        }
+    }
+
+    &__contact-info {
+        width: 50%;
+        order: 4;
+        padding-right: 1rem;
+
+        @include tablet {
+            width: 15%;
+        }
+    }
+
+    &__icons {
+        order: 5;
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        padding-top: 1rem;
+
+        @include tablet {
+            justify-content: flex-end;
+            width: 20%;
+            align-items: baseline;
+            padding: 0;
+        }
+
+        @include desktop {
+            width: 15%;
+        }
+
+        &--icon {
+
+            @include tablet {
+                padding-left: 1rem;
+            }
+        }
+    }
+
+    &__title {
+        font-size: 0.6rem;
+        color: $slate;
+
+        @include tablet {
+            display: none;
+        }
+    }
+    
+    &__input {
+        font-size: 0.7rem;
+        display: flex;
+        align-items: center;
+        margin: 0;
+
+        @include tablet {
+            font-size: 0.6rem;
+        }
+
+    }
+
+    &__link {
+        color: $instock-indigo;
+    }
+}
