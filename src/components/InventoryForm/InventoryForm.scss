@@ -124,6 +124,7 @@ label {
 
         &--error {
             @include input-style;
+            font-family: 'Titillium Web';
             border: 1px solid $red;
         }
     }

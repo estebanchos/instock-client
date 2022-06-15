@@ -4,13 +4,14 @@ import { Component } from 'react';
 import { categoryList, warehouseList } from '../../utils/dropdownLists';
 import { inventoriesUrl } from '../../utils/api';
 import InvalidMessage from '../InvalidMessage/InvalidMessage';
+import axios from 'axios';
 
 class InventoryForm extends Component {
     state = {
         name: '',
         description: '',
         category: '',
-        status: '',
+        status: 'In stock',
         quantity: 0,
         warehouseId: '',
         isValidName: true,
@@ -85,7 +86,7 @@ class InventoryForm extends Component {
                 isValidQuantity: true
             })
         }
-        
+
         if (!warehouseId) {
             this.setState({
                 isValidWarehouseId: false
@@ -104,15 +105,31 @@ class InventoryForm extends Component {
         const newItemUrl = `${inventoriesUrl}/new`
         e.preventDefault()
         if (this.isFormValid()) {
-            console.log("yey, valid")
+            let newItem = {
+                name: this.state.name,
+                description: this.state.description,
+                category: this.state.category,
+                status: this.state.status,
+                quantity: this.state.quantity,
+                warehouseId: this.state.warehouseId
+            }
+            axios.post(newItemUrl, newItem)
+                .then(_res => {
+                    console.log("successful post")
+                    setTimeout(() => this.returnToInventory(), 1000);
+                })
+                .catch(err => {
+                    console.err("Unable to post: ", err)
+                })
         }
     }
 
-    returnToInvetory = () => {
+    returnToInventory = () => {
         this.props.history.push('/inventories')
     }
 
     render() {
+        console.log(this.props)
         return (
             <form className='inventory-item' onSubmit={this.handleSubmit}>
                 <section className='inventory-item__form-inputs'>
@@ -152,7 +169,7 @@ class InventoryForm extends Component {
                                 value={this.state.category}
                                 onChange={this.handleChange}
                             >
-                                <option value='' disabled selected hidden>Please select</option>
+                                <option value='' disabled hidden>Please select</option>
                                 {categoryList.map((category, index) => {
                                     return (
                                         <option key={index} value={category}>{category}</option>
@@ -192,13 +209,12 @@ class InventoryForm extends Component {
                             <label className='inventory-item__label' htmlFor=''>Warehouse</label>
                             <select
                                 className={this.state.isValidWarehouseId ? 'input-type__dropdown' : 'input-type__dropdown--error'}
-                                name='warehouse'
-                                id='warehouse'
-                                placeholder='Please select'
+                                name='warehouseId'
+                                id='warehouseId'
                                 value={this.state.warehouseId}
                                 onChange={this.handleChange}
                             >
-                                <option value='' disabled selected hidden>Please select</option>
+                                <option value='' disabled hidden>Please select</option>
                                 {warehouseList.map(warehouse => {
                                     return (
                                         <option key={warehouse.id} value={warehouse.id}>{warehouse.name}</option>
