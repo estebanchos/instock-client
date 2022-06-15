@@ -9,23 +9,76 @@
         display: none;
         padding: 0 1rem;
         background-color: $light-grey;
+        width: 100%;
 
         @include tablet {
             display: flex;
         }
+
+        &--name {
+
+            @include tablet {
+                width: 20%;
+            }
+
+            @include desktop {
+                width: 15%;
+            }
+        }
+
+        &--address {
+
+            @include tablet {
+                width: 20%;
+            }
+
+            @include desktop {
+                width: 25%;
+            }
+        }
+
+        &--contact {
+
+            @include tablet {
+                width: 20%;
+            }
+
+            @include desktop {
+                width: 25%;
+            }
+        }
+
+        &--info {
+
+            @include tablet {
+                width: 20%;
+            }
+
+            @include desktop {
+                width: 15%;
+            }
+        }
+
+        &--action {
+            display: flex;
+            justify-content: center;
+
+            @include tablet {
+                width: 20%;
+            }
+
+            @include desktop {
+                width: 15%;
+                justify-content: flex-end;
+            }
+        }
     }
 
     &__titles-title {
-        width: 20%;
         font-size: 0.65rem;
         color: $slate;
         display: flex;
         align-items: center;
-
-        &--action {
-            display: flex;
-            justify-content: flex-end;
-        }
     }
 
     &__titles-icon {

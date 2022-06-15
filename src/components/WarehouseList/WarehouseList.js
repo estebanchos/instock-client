@@ -6,19 +6,19 @@ function WarehouseList({ warehouses }) {
     return ( 
         <section className='warehouse-list'>
             <div className='warehouse-list__titles'>
-                <p className='warehouse-list__titles-title'>
+                <p className='warehouse-list__titles-title warehouse-list__titles--name'>
                     WAREHOUSE
                     <img className='warehouse-list__titles-icon'src={sort} alt='arrows'/>
                 </p>
-                <p className='warehouse-list__titles-title'>
+                <p className='warehouse-list__titles-title warehouse-list__titles--address'>
                     ADDRESS
                     <img className='warehouse-list__titles-icon' src={sort} alt='arrows'/>
                 </p>
-                <p className='warehouse-list__titles-title'>
+                <p className='warehouse-list__titles-title warehouse-list__titles--contact'>
                     CONTACT NAME
                     <img className='warehouse-list__titles-icon' src={sort} alt='arrows'/>
                 </p>
-                <p className='warehouse-list__titles-title'>
+                <p className='warehouse-list__titles-title warehouse-list__titles--info'>
                     CONTACT INFORMATION
                     <img className='warehouse-list__titles-icon' src={sort} alt='arrows'/>
                 </p>
