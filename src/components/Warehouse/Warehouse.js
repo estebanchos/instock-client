@@ -4,12 +4,12 @@ import chevRight from '../../assets/icons/chevron-right.svg';
 import deleteIcon from '../../assets/icons/delete-outline.svg';
 import editIcon from '../../assets/icons/edit-blue.svg';
 
-function Warehouse({ name, address, city, country, contactName, tel, email }) {
+function Warehouse({ name, address, city, country, contactName, tel, email, key }) {
     return (  
         <div className='warehouse'>
             <div className='warehouse__name'>
                 <h4 className='warehouse__title'>WAREHOUSE</h4>
-                <NavLink to={'/'} className='warehouse__link'>
+                <NavLink to={`/warehouses/${key}`} className='warehouse__link'>
                     <p className='warehouse__input'>
                         {name}
                         <img src={chevRight} alt='chev-right'/>
