@@ -39,7 +39,6 @@ class InventoryForm extends Component {
                         <div className='inventory-item__input-container'>
                             <label className='inventory-item__label' htmlFor=''>Description</label>
                             <input
-
                                 className='inventory-item__input input-description'
                                 name='description'
                                 id='description'
@@ -68,7 +67,7 @@ class InventoryForm extends Component {
                     </section>
                     <section className='inventory-item__availability'>
                         <h2 className='inventory-item__subheader'>Item Availability</h2>
-                        <div>
+                        <div className='inventory-item__status-container'>
                             <label className='inventory-item__label' htmlFor=''>Status</label>
                             <div className='inventory-item__radio-container radio'>
                                 <div className='radio__option'>
