@@ -6,6 +6,8 @@
 input {
     border-radius: 20px;
     color: $instock-black;
+    padding: 0.5rem 1rem;
+    border: 1px solid $cloud;
 
     &::placeholder {
         color: $slate;
@@ -20,26 +22,43 @@ label {
 }
 
 .inventory-item {
-    &__form-inputs{}
+    // margin: 1rem;
+    &__form-inputs{
+        @include tablet {
+            display: flex;
+        }
+    }
     &__form-actions{
         background-color: $light-grey;
+        display: flex;
+        padding: 1rem 0;
     }
-    &__details{}
-    &__availability{}
+    &__details{
+        padding: 0 1rem;
+        margin-bottom: 2rem;
+    }
+    &__availability{
+        padding: 0 1rem;
+        margin-bottom: 2rem;
+        border-top: 1px solid $cloud;
+    }
     &__input-container{
         display: flex;
         flex-direction: column;
+        margin: 1rem 0;
     }
     &__radio-container{
         display: flex;
     }
     &__dropdown {
         border-radius: 20px;
+        padding: 0.5rem 1rem;
+        border: 1px solid $cloud;
     }
 }
 
 .radio {
     &__option {
-
+        width: 50%;
     }
 }
