@@ -6,7 +6,6 @@ import Footer from './components/Footer/Footer';
 import Warehouses from './components/Warehouses/Warehouses';
 import Inventories from './components/Inventories/Inventories';
 
-
 class App extends Component {
 
   render() {
