@@ -34,7 +34,6 @@ function InventoryItem ({ itemName, category, status, quantity, warehouseName })
                     <p className='item__item'>{warehouseName}</p>
                 </div>
             </div>
-
             <div className='item__icons'>
                 <img src={deleteIcon} alt='delete' />
                 <img src={editIcon} alt='edit' />

@@ -1,0 +1,29 @@
+@use '../../styles/global.scss' as *;
+@use '../../styles/partials/colors' as *;
+@use '../../styles/partials/mixins' as *;
+@use '../../styles/partials/variables' as *;
+
+.inventory-list{
+    // border: 1px solid red;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  
+
+    &__list{
+        border: 1px solid blue;
+        list-style-type: none;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        margin: 0;
+        padding: 0;
+    }
+
+    &__item{
+  
+        
+    }
+
+}

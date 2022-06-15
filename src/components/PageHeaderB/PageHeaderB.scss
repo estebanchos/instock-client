@@ -1,0 +1,26 @@
+@use '../../styles/global.scss' as *;
+@use '../../styles/partials/colors' as *;
+@use '../../styles/partials/mixins' as *;
+@use '../../styles/partials/variables' as *;
+
+.page-head{
+    &__container{
+        border: 1px solid rebeccapurple;
+        display: flex;
+        align-items: center;
+    }
+    &__title{
+    
+    }
+
+    &__button{
+        display: none;
+        width: 3rem;
+    }
+
+}
+
+
+.arrow-back{
+
+}
