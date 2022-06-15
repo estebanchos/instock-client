@@ -1,7 +1,10 @@
 import './Button.scss';
 
+// Doc: Component will takes 2 props: 
+// color: 'blue' 'red' or empty. If empty will default to the cancel button styling
+// prompt: CTA action of the button
+
 function Button({ color, prompt }) {
-    // modifiers: color (white, blue, red)
     const assignColor = (color) => {
         switch (color) {
             case 'blue':
