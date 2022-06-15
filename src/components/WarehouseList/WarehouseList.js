@@ -24,7 +24,6 @@ function WarehouseList({ warehouses }) {
                 </p>
                 <p className='warehouse-list__titles-title warehouse-list__titles--action'>
                     ACTIONS
-                    <img className='warehouse-list__titles-icon' src={sort} alt='arrows'/>
                 </p>
             </div>
             <ul className='warehouse-list__items'>

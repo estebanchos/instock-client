@@ -109,6 +109,10 @@
         align-items: center;
         margin: 0;
 
+        @include tablet {
+            font-size: 0.6rem;
+        }
+
     }
 
     &__link {
