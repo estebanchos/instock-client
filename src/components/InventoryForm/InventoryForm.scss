@@ -3,18 +3,6 @@
 @use '../../styles/partials/mixins' as *;
 @use '../../styles/partials/variables' as *;
 
-input {
-    border-radius: 20px;
-    color: $instock-black;
-    padding: 0.5rem 1rem;
-    border: 1px solid $cloud;
-
-    &::placeholder {
-        color: $slate;
-        font-family: 'Titillium Web';
-    }
-}
-
 label {
     margin-bottom: 0.25rem;
     color: $instock-black;
@@ -102,13 +90,41 @@ label {
         }
     }
 
-    &__quantity {
-        border-radius: 20px;
-        color: $instock-black;
-        padding: 0.5rem 1rem;
+
+
+
+}
+
+
+.input-type {
+    &__input {
+        @include input-style;
         border: 1px solid $cloud;
-        @include desktop {
-            width: 22%;
+
+        &::placeholder {
+            color: $slate;
+            font-family: 'Titillium Web';
+        }
+
+        &--error {
+            @include input-style;
+            border: 1px solid $red;
+        }
+    }
+
+    &__description {
+        @include input-style;
+        border: 1px solid $cloud;
+        font-family: 'Titillium Web';
+        resize: none;
+
+        &::placeholder {
+            color: $slate;
+        }
+
+        &--error {
+            @include input-style;
+            border: 1px solid $red;
         }
     }
 
@@ -117,11 +133,28 @@ label {
         padding: 0.5rem 1rem;
         border: 1px solid $cloud;
         color: $slate;
-    }
-}
 
-.radio {
+        &--error {
+            @include input-style;
+            border: 1px solid $red;
+        }
+    }
+
     &__option {
         width: 50%;
+    }
+
+    &__quantity {
+        @include input-style;
+        border: 1px solid $cloud;
+
+        @include desktop {
+            width: 22%;
+        }
+
+        &--error {
+            @include input-style;
+            border: 1px solid $red;
+        }
     }
 }

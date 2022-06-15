@@ -121,7 +121,7 @@ class InventoryForm extends Component {
                         <div className='inventory-item__input-container'>
                             <label className='inventory-item__label' htmlFor=''>Item Name</label>
                             <input
-                                className='inventory-item__input'
+                                className={this.state.isValidName ? 'input-type__input' : 'input-type__input--error'}
                                 name='name'
                                 id='name'
                                 placeholder='Please enter item name...'
@@ -133,7 +133,7 @@ class InventoryForm extends Component {
                         <div className='inventory-item__input-container'>
                             <label className='inventory-item__label' htmlFor=''>Description</label>
                             <textarea
-                                className='inventory-item__description'
+                                className={this.state.isValidDescription ? 'input-type__description' : 'input-type__description--error'}
                                 name='description'
                                 id='description'
                                 placeholder='Please enter a brief item description'
@@ -146,7 +146,7 @@ class InventoryForm extends Component {
                         <div className='inventory-item__input-container'>
                             <label className='inventory-item__label' htmlFor=''>Category</label>
                             <select
-                                className='inventory-item__dropdown'
+                                className={this.state.isValidCategory ? 'input-type__dropdown' : 'input-type__dropdown--error'}
                                 name='category'
                                 id='category'
                                 value={this.state.category}
@@ -166,12 +166,12 @@ class InventoryForm extends Component {
                         <h2 className='inventory-item__subheader'>Item Availability</h2>
                         <div className='inventory-item__status-container'>
                             <label className='inventory-item__label' htmlFor=''>Status</label>
-                            <div className='inventory-item__radio-container radio'>
-                                <div className='radio__option'>
+                            <div className='inventory-item__radio-container'>
+                                <div className='input-type__option'>
                                     <input type='radio' name='status' id='in-stock' value='In stock' onChange={this.handleChange} checked />
                                     <label htmlFor='in-stock' >In stock</label>
                                 </div>
-                                <div className='radio__option'>
+                                <div className='input-type__option'>
                                     <input type='radio' name='status' id='out-of-stock' value='Out of stock' onChange={this.handleChange} />
                                     <label htmlFor='out-of-stock' >Out of stock</label>
                                 </div>
@@ -180,7 +180,7 @@ class InventoryForm extends Component {
                         <div className='inventory-item__input-container'>
                             <label className='inventory-item__label' htmlFor=''>Quantity</label>
                             <input
-                                className='inventory-item__quantity'
+                                className={this.state.isValidQuantity ? 'input-type__quantity' : 'input-type__quantity--error'}
                                 name='quantity'
                                 id='quantity'
                                 value={this.state.quantity}
@@ -191,7 +191,7 @@ class InventoryForm extends Component {
                         <div className='inventory-item__input-container'>
                             <label className='inventory-item__label' htmlFor=''>Warehouse</label>
                             <select
-                                className='inventory-item__dropdown'
+                                className={this.state.isValidWarehouseId ? 'input-type__dropdown' : 'input-type__dropdown--error'}
                                 name='warehouse'
                                 id='warehouse'
                                 placeholder='Please select'
