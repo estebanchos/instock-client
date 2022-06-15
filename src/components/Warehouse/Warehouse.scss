@@ -8,27 +8,52 @@
     display: flex;
     flex-wrap: wrap;
     padding: 1rem;
+
+    @include tablet {
+        flex-wrap: nowrap;
+        align-items: center;
+        padding: 1rem;
+    }
     
     &__name {
         width: 50%;
         padding-bottom: 1rem;
+
+        @include tablet {
+            width: 20%;
+            padding: 0;
+        }
     }
 
     &__address {
         width: 50%;
         order: 3;
         padding-right: 1rem;
+
+        @include tablet {
+            order: 2;
+            width: 20%;
+        }
     }
 
     &__contact-name {
         width: 50%;
         order: 2;
+
+        @include tablet {
+            order: 3;
+            width: 20%;
+        }
     }
 
     &__contact-info {
         width: 50%;
         order: 4;
         padding-right: 1rem;
+
+        @include tablet {
+            width: 20%;
+        }
     }
 
     &__icons {
@@ -37,11 +62,29 @@
         display: flex;
         justify-content: space-between;
         padding-top: 1rem;
+
+        @include tablet {
+            justify-content: flex-end;
+            width: 20%;
+            align-items: baseline;
+            padding: 0;
+        }
+
+        &--icon {
+
+            @include tablet {
+                padding-left: 1rem;
+            }
+        }
     }
 
     &__title {
         font-size: 0.6rem;
         color: $slate;
+
+        @include tablet {
+            display: none;
+        }
     }
     
     &__input {

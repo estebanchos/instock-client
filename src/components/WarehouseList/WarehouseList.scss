@@ -5,6 +5,34 @@
 
 .warehouse-list {
 
+    &__titles {
+        display: none;
+        padding: 0 1rem;
+        background-color: $light-grey;
+
+        @include tablet {
+            display: flex;
+        }
+    }
+
+    &__titles-title {
+        width: 20%;
+        font-size: 0.65rem;
+        color: $slate;
+        display: flex;
+        align-items: center;
+
+        &--action {
+            display: flex;
+            justify-content: flex-end;
+        }
+    }
+
+    &__titles-icon {
+        width: 1rem;
+        height: 1rem
+    }
+
     &__items {
         list-style-type: none;
         margin: 0;

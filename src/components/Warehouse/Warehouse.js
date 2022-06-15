@@ -29,8 +29,8 @@ function Warehouse({ name, address, city, country, contactName, tel, email }) {
                 <p className='warehouse__input'>{tel} {email}</p>
             </div>
             <div className='warehouse__icons'>
-                <img src={deleteIcon} alt='delete'/>
-                <img src={editIcon} alt='edit' />
+                <img className='warehouse__icons--icon'src={deleteIcon} alt='delete'/>
+                <img className='warehouse__icons--icon'src={editIcon} alt='edit' />
             </div>
         </div>
     );

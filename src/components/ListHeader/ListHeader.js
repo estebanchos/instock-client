@@ -7,9 +7,12 @@ import Button from '../Button/Button';
 function ListHeader({ listName, buttonText}) {
     return ( 
         <div className='list-header'>
+            <div className='list-header__background'></div>
             <h1 className='list-header__title'>{listName}</h1>
-            <input type='text' name='search' className='list-header__search'placeholder='Search...'></input>
-            <Button className='list-header__button' color='blue' prompt={buttonText} />
+            <div className='list-header__actions'>
+                <input type='text' name='search' className='list-header__search'placeholder='Search...'></input>
+                <Button className='list-header__button' color='blue' prompt={buttonText} />
+            </div>
         </div>
      );
 }

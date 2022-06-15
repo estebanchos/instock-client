@@ -3,6 +3,12 @@
 @use '../../styles/partials/mixins' as *;
 @use '../../styles/partials/variables' as *;
 
+.main-background {
+    background-color: $graphite;
+    height: 4rem;
+    position: relative;
+}
+
 .main {
     width: 100%;
     display: flex;

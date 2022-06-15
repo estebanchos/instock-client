@@ -22,7 +22,7 @@ class Warehouses extends Component {
     render() { 
         return (
             <main className='main'>
-                    <section className='main__inner'>
+                <section className='main__inner'>
                     <ListHeader listName='Warehouses' buttonText='+Add New Warehouse' />
                     <WarehouseList warehouses={this.state.warehouses}/>
                 </section>
