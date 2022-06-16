@@ -13,7 +13,7 @@
         border-bottom: 1px solid $cloud;
         
         @include tablet {
-            padding: 2rem;
+            padding: 1rem 2rem;
         }
     }
     &__left{

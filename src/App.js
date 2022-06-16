@@ -21,7 +21,6 @@ class App extends Component {
             {/* <Route path="/inventories" component={Inventories} /> */}
             <Route path="/warehouses/:warehouseId" component={WarehouseDetails} />
             <Route path="/inventories" exact component={Inventories} />
-            {/* <Route path="/warehouses/:warehouseId" component={WarehouseDetails} /> */}
             <Route path='/inventories/inventory/new' component={NewInventoryPage} />
           </Switch> 
           <Footer />
