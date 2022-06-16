@@ -26,11 +26,11 @@ function InventoryItem ({ itemName, category, status, quantity, warehouseName })
                 </div>
                 <div className='item__info-right'>
                     <h4 className='item__subheader'>Status</h4>
-                    {if (status==="In Stock"{
+                    {/* {if (status==="In Stock"{
 
                     })
 
-                    }
+                    } */}
                     <p className='item__item--stock'>{status}</p>
                     <h4 className='item__subheader'>Qty</h4>
                     <p className='item__item'>{quantity}</p>
