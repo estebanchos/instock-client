@@ -2,7 +2,7 @@ import './PageHeaderB.scss';
 import arrowBack from "../../assets/icons/arrow-back.svg";
 import ButtonEdit from '../ButtonEdit/ButtonEdit';
 
-// Component takes prop for whatever the title of the page needs to be, 
+// Component takes prop for whatever the title of the page needs to be
 
 function PageHeaderB({headerTitle}) {
 
