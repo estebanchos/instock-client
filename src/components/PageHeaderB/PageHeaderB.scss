@@ -1,0 +1,30 @@
+@use '../../styles/global.scss' as *;
+@use '../../styles/partials/colors' as *;
+@use '../../styles/partials/mixins' as *;
+@use '../../styles/partials/variables' as *;
+
+.page-head{
+    &__container{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 100%;
+        padding: 1rem;
+        @include tablet {
+            padding: 2rem;
+        }
+    }
+    &__left{
+        display: flex;
+    }
+    &__title{
+        margin: .5rem;
+        font-size: $m-h1-text-size;
+        line-height: $m-h1-line-height;
+        text-transform: capitalize;
+        @include tablet {
+        font-size: $h1-text-size;
+        line-height: $h1-line-height;
+        }
+    }
+}

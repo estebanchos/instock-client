@@ -1,0 +1,56 @@
+@use '../../styles/global.scss' as *;
+@use '../../styles/partials/colors' as *;
+@use '../../styles/partials/mixins' as *;
+@use '../../styles/partials/variables' as *;
+
+.warehouse-inv {
+    
+    &__display-block{
+        display: block;
+        padding: 0.5rem 1rem;
+    }
+    
+    &__display-none {
+        display: none;
+    }
+    
+    &__address {
+
+    }
+    
+    &__title {
+        font-size: 0.6rem;
+        color: $slate;
+        margin-bottom: 0;
+
+        @include tablet {
+            display: none;
+        }
+    }
+    
+    &__input {
+        font-size: 0.7rem;
+        display: flex;
+        align-items: center;
+        margin: 0;
+
+        @include tablet {
+            font-size: 0.6rem;
+        }
+    }
+    
+    &__contact {
+        display: flex;
+        width: 100%;
+        padding-top: 1.5rem;
+        padding-bottom: 0.5rem;
+    }
+    
+    &__contact-name {
+        width: 50%;
+    }
+
+    &__contact-info {
+        width: 50%;
+    }
+}
