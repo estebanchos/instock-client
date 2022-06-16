@@ -1,4 +1,5 @@
-@use "breakpoints" as *;
+@use "./breakpoints" as *;
+@use "./colors" as *;
 
 @mixin reset-list {
   margin: 0;
@@ -37,4 +38,10 @@
     padding: 0 1rem;
     width: fit-content;
   }
+}
+
+@mixin input-style {
+  border-radius: 20px;
+  padding: 0.5rem 1rem;
+  color: $instock-black;
 }
