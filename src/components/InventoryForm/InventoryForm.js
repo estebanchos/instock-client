@@ -102,7 +102,7 @@ class InventoryForm extends Component {
     }
 
     handleSubmit = (e) => {
-        const newItemUrl = `${inventoriesUrl}/new`
+        const newItemUrl = `${inventoriesUrl}new`
         e.preventDefault()
         if (this.isFormValid()) {
             let newItem = {
