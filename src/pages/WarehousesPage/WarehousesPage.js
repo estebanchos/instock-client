@@ -1,8 +1,8 @@
-import './Warehouses.scss';
+import './WarehousesPage.scss';
 import { Component } from 'react';
-import WarehouseList from '../WarehouseList/WarehouseList';
+import WarehouseList from '../../components/WarehouseList/WarehouseList';
 import axios from 'axios';
-import ListHeader from '../ListHeader/ListHeader';
+import ListHeader from '../../components/ListHeader/ListHeader';
 
 class Warehouses extends Component {
     state = { 

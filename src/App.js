@@ -3,8 +3,8 @@ import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import { Component } from 'react';
 import Header from './components/Header/Header';
 import Footer from './components/Footer/Footer';
-import Warehouses from './components/Warehouses/Warehouses';
-import Inventories from './components/Inventories/Inventories';
+import WarehousesPage from './pages/WarehousesPage/WarehousesPage';
+import InventoriesPage from './pages/InventoriesPage/InventoriesPage';
 import NewInventoryPage from './pages/NewInventoryPage/NewInventoryPage';
 
 class App extends Component {
@@ -15,8 +15,8 @@ class App extends Component {
         <BrowserRouter>
           <Header />
           <Switch>
-            <Route path="/" exact component={Warehouses} />
-            <Route path="/inventories" exact component={Inventories} />
+            <Route path="/" exact component={WarehousesPage} />
+            <Route path="/inventories" exact component={InventoriesPage} />
             {/* <Route path="/warehouses/:warehouseId" component={WarehouseDetails} /> */}
             <Route path='/inventories/inventory/new' component={NewInventoryPage} />
           </Switch> 
