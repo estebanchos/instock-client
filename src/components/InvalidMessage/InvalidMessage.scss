@@ -1,0 +1,19 @@
+@use '../../styles/global.scss' as *;
+@use '../../styles/partials/colors' as *;
+@use '../../styles/partials/mixins' as *;
+@use '../../styles/partials/variables' as *;
+
+.error-message {
+    display: flex;
+    margin-top: 0.25rem;
+    &__icon {
+        margin-right: 0.25rem;
+    }
+    &__message {
+        margin: 0;
+        color: $red;
+    }
+    &--hidden {
+        display: none;
+    }
+}

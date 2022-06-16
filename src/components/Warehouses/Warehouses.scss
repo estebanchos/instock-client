@@ -1,0 +1,71 @@
+@use '../../styles/global.scss' as *;
+@use '../../styles/partials/colors' as *;
+@use '../../styles/partials/mixins' as *;
+@use '../../styles/partials/variables' as *;
+
+.main {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+
+    &__background {
+        width: 100%;
+        height: 3rem;
+        background-color: $graphite;
+        position: absolute;
+        top: 0;
+        left: 0;
+
+        @include tablet {
+            height: 4.8rem;
+        }
+    }
+
+    &__inner {
+        margin: 0 1.5rem;
+        border-radius: 3px;
+        box-shadow: 0px 2px 5px rgba(19, 24, 44, 0.1);
+        width: 91%;
+        display: flex;
+        flex-direction: column;
+        position: relative;
+        z-index: 1;
+        background-color: $white;
+        
+
+        @include desktop {
+            margin: 0, auto;
+            width: 80%;
+            max-width: 80rem;
+        }
+    }
+    
+    &__header {
+       padding: 0 1.5rem 1.5rem 1.5rem;
+    }
+    
+    &__header-title {
+        margin: none;
+    }
+
+    &__header-search {
+        width: 100%;
+        height: 2.25rem;
+        border-radius: 20px;
+        margin-bottom: 1.5rem;
+        border: 1px solid $cloud;
+        padding: 1rem;
+        background-image: url('../../assets/icons/search.svg');
+        background-repeat: no-repeat;
+        background-position: 95% 50%;
+    }
+
+    &__header-button {
+        margin: 1rem 0;
+    }
+
+}
+                

@@ -1,13 +1,40 @@
 import './InventoryList.scss';
-import InventoryItem from '../InventoryItem/InventoryItem'
+import InventoryItem from '../InventoryItem/InventoryItem';
+import sort from '../../assets/icons/sort.svg';
 
 function InventoryList ({ inventories }){
     return (
-        <section className='inventory-list'>
-            <ul className='inventory-list__list'>
+        <section className='inventory-section'>
+            <div className='inventory-list__filters'>
+                <p className='inventory-list__filters-title'>
+                    INVENTORY ITEM
+                    <img className='inventory-list__filters-icon'src={sort} alt='arrows'/>
+                </p>
+                <p className='inventory-list__filters-title'>
+                    CATEGORY
+                    <img className='inventory-list__filters-icon' src={sort} alt='arrows'/>
+                </p>
+                <p className='inventory-list__filters-title'>
+                    STATUS
+                    <img className='inventory-list__filters-icon' src={sort} alt='arrows'/>
+                </p>
+                <p className='inventory-list__filters-title'>
+                    QTY
+                    <img className='inventory-list__filters-icon' src={sort} alt='arrows'/>
+                </p>
+                <p className='inventory-list__filters-title'>
+                    WAREHOUSE
+                    <img className='inventory-list__filters-icon' src={sort} alt='arrows'/>
+                </p>
+                <p className='inventory-list__filters-title'>
+                    ACTIONS
+                </p>
+            </div>
+
+            <ul className='inventory-list'>
                 {inventories.map((item) => {
                     return <li
-                        className='inventory__item'
+                        className='inventory-list__item'
                         key={item.id}
                         >
                         <InventoryItem 
@@ -19,8 +46,8 @@ function InventoryList ({ inventories }){
                         />
                     </li>
                 })}
-            </ul>  
-        </section>
+            </ul> 
+        </section> 
     );
 }
 
