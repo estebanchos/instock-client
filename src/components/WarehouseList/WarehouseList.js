@@ -33,6 +33,7 @@ function WarehouseList({ warehouses }) {
                         key={warehouse.id}
                         >
                         <Warehouse
+                            id={warehouse.id}
                             name={warehouse.name}
                             address={warehouse.address}
                             city={warehouse.city}

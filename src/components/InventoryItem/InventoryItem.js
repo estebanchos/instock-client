@@ -5,10 +5,8 @@ import deleteIcon from '../../assets/icons/delete-outline.svg';
 import editIcon from '../../assets/icons/edit-blue.svg';
 import chevRight from '../../assets/icons/chevron-right.svg';
 import InOutStock from '../InOutStock/InOutStock';
-// import InventoryItem from '..InventoryItem/InventoryItem.js';
 
-// // DATA
-// import axios from 'axios';
+// DATA
 // const inventoriesURL = 'http://localhost:8080/inventories'
 
 function InventoryItem ({ itemName, category, status, quantity, warehouseName }){

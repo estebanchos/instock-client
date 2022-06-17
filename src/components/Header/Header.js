@@ -11,7 +11,7 @@ function Header() {
             <nav className='header__nav'>
                 <ul className='header__nav-list'>
                     <li className='header__nav-item header__nav-item--active'>
-                        <NavLink to={'/warehouses'}>Warehouses</NavLink>
+                        <NavLink to={'/'}>Warehouses</NavLink>
                     </li>
                     <li className='header__nav-item'>
                         <NavLink to={'/inventories'}>Inventory</NavLink>
