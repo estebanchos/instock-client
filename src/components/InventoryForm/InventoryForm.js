@@ -115,10 +115,11 @@ class InventoryForm extends Component {
             }
             axios.post(newItemUrl, newItem)
                 .then(_res => {
-                    setTimeout(() => this.returnToInventory(), 1000);
+                    // uncomment the below once inventories page route is implemented
+                    // setTimeout(() => this.returnToInventory(), 1000);
                 })
                 .catch(err => {
-                    console.err("Unable to post: ", err)
+                    console.error("Unable to post: ", err)
                 })
         }
     }

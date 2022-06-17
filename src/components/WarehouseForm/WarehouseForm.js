@@ -140,14 +140,14 @@ class WarehouseForm extends Component {
                 phone: this.state.phone,
                 email: this.state.email
             }
-            // axios.post(newWarehouseUrl, newWarehouse)
-            //     .then(_res => {
-            //         setTimeout(() => this.returnToWarehouses(), 1000);
-            //     })
-            //     .catch(err => {
-            //         console.err("Unable to post: ", err)
-            //     })
-            console.log(newWarehouse)
+            axios.post(newWarehouseUrl, newWarehouse)
+                .then(_res => {
+                    // uncomment the below once warehouses page route is implemented
+                    // setTimeout(() => this.returnToWarehouses(), 1000);
+                })
+                .catch(err => {
+                    console.error("Unable to post: ", err)
+                })
         }
     }
 
