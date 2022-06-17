@@ -1,0 +1,90 @@
+@use '../../styles/global.scss' as *;
+@use '../../styles/partials/colors' as *;
+@use '../../styles/partials/mixins' as *;
+@use '../../styles/partials/variables' as *;
+
+label {
+    margin-bottom: 0.25rem;
+    color: $instock-black;
+    font-weight: 600;
+}
+
+.warehouse-item {
+    &__form-inputs {
+        border-top: 1px solid $cloud;
+        margin-top: 1rem;
+
+        @include tablet {
+            display: flex;
+            padding: 0 2rem;
+        }
+    }
+
+    &__form-actions {
+        background-color: $light-grey;
+        display: flex;
+        padding: 1rem 0;
+
+        @include tablet {
+            flex-direction: row-reverse;
+            padding-right: 2rem;
+        }
+    }
+
+    &__warehouse-details {
+        padding: 0 1rem;
+        margin-bottom: 2rem;
+
+        @include tablet {
+            margin: 2rem 0 2rem 0;
+            padding: 0 2rem 0 0;
+            border-right: 1px solid $cloud;
+            width: 100%;
+        }
+    }
+
+    &__contact-details {
+        padding: 0 1rem;
+        margin-bottom: 2rem;
+        border-top: 1px solid $cloud;
+
+        @include tablet {
+            margin: 2rem;
+            margin-right: 0;
+            padding: 0;
+            border: 0;
+            width: 100%;
+        }
+    }
+
+    &__input-container {
+        display: flex;
+        flex-direction: column;
+        margin: 1rem 0;
+    }
+
+    &__subheader {
+        @include tablet {
+            margin: 0;
+        }
+    }
+
+}
+
+
+.input-type {
+    &__input {
+        @include input-style;
+        border: 1px solid $cloud;
+
+        &::placeholder {
+            color: $slate;
+            font-family: 'Titillium Web';
+        }
+
+        &--error {
+            @include input-style;
+            border: 1px solid $red;
+        }
+    }
+}
