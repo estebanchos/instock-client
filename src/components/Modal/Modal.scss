@@ -1,0 +1,74 @@
+@use '../../styles/global.scss' as *;
+@use '../../styles/partials/colors' as *;
+@use '../../styles/partials/mixins' as *;
+@use '../../styles/partials/variables' as *;
+
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width:100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    z-index: 2;
+
+  
+    &__main {
+        position:fixed;
+        background: white;
+        width: 100%;
+        height: 100%;
+        top:50%;
+        left:50%;
+        transform: translate(-50%,-50%);
+        padding: 1rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+        border-radius: 5px;
+
+        @include tablet {
+            flex-direction: row;
+            justify-content: space-between;
+            padding: 1rem 2rem;
+            width: 50%;
+        }
+    }
+
+    &__main-upper {
+        display: flex;
+        flex-direction: column;
+        
+    }
+
+    &__main-title {
+        font-size: $m-h1-text-size;
+        line-height: $m-h1-line-height;
+    }
+
+    &__main-text {
+        font-size: $m-p1-text-size;
+        line-height: $m-p1-line-height;
+    }
+
+    &__buttons {
+        width: 100%;
+
+        &--delete {
+            width: 50%;
+
+            &:hover {
+                cursor: pointer;
+            }
+        }
+    }
+}
+  
+.display-block {
+    display: block;
+}
+  
+.display-none {
+    display: none;
+}

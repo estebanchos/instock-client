@@ -3,10 +3,14 @@ import { Component } from 'react';
 import WarehouseList from '../../components/WarehouseList/WarehouseList';
 import axios from 'axios';
 import ListHeader from '../../components/ListHeader/ListHeader';
+import Modal from '../../components/Modal/Modal';
 
 class Warehouses extends Component {
     state = { 
-        warehouses: []
+        warehouses: [],
+        show: false,
+        selectedWarehouseName:'',
+        selectedWarehouseId: ''
      } 
 
     componentDidMount() {
@@ -19,13 +23,22 @@ class Warehouses extends Component {
             .catch((error) => console.error(error))
     }
 
+    onClick = (e) => {
+        this.setState({
+            show: true,
+            selectedWarehouseName: e.target.name,
+            selectedWarehouseId: e.target.id
+        })
+    }
+
     render() { 
         return (
             <main className='main'>
+                 <Modal show={this.state.show} warehouseName={this.state.selectedWarehouseName}/>
                 <div className='main__background'></div>
                 <section className='main__inner'>
                     <ListHeader listName='Warehouses' buttonText='+Add New Warehouse' />
-                    <WarehouseList warehouses={this.state.warehouses}/>
+                    <WarehouseList warehouses={this.state.warehouses} deleteClick={() => this.onClick} show={this.state.show}/>
                 </section>
             </main>
         );
