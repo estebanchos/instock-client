@@ -8,6 +8,7 @@ import InventoriesPage from './pages/InventoriesPage/InventoriesPage';
 import NewInventoryPage from './pages/NewInventoryPage/NewInventoryPage';
 import WarehouseInvPage from './pages/WarehouseInvPage/WarehouseInvPage';
 import NewWarehousePage from './pages/NewWarehousePage/NewWarehousePage';
+import InventoryDetails from './components/InventoryDetails/InventoryDetails';
 
 class App extends Component {
 
@@ -19,6 +20,7 @@ class App extends Component {
           <Switch>
             <Route path="/" exact component={WarehousesPage} />
             <Route path="/inventories" exact component={InventoriesPage} />
+            <Route path="/inventories/:Id" component={InventoryDetails} />
             <Route path="/warehouses/:warehouseId" exact component={WarehouseInvPage} />
             <Route path='/inventories/inventory/new' component={NewInventoryPage} />
             <Route path='/warehouses/warehouse/new' exact component={NewWarehousePage} />

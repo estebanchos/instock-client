@@ -6,18 +6,18 @@ import editIcon from '../../assets/icons/edit-blue.svg';
 import chevRight from '../../assets/icons/chevron-right.svg';
 import InOutStock from '../InOutStock/InOutStock';
 
-// DATA
-// const inventoriesURL = 'http://localhost:8080/inventories'
+// // DATA
 
-function InventoryItem ({ itemName, category, status, quantity, warehouseName }){
+function InventoryItem ({ itemName, category, status, quantity, warehouseName, id }){
 
     return (
+       
         <div className='item'>
             <div className='item__info'>
                 <div className='item__info-left'>
                     <h4 className='item__subheader'>Inventory Item</h4>
                     <div className='item__item-wrapper'>
-                        <Link to={'/item'} className='item__link'>
+                        <Link to={'/inventories/'+id} className='item__link'>
                             <p className='item__item--clickable'>{itemName}</p>
                             <img className='item__chevron' src={chevRight} alt='arrow right'/>
                         </Link>
@@ -44,13 +44,11 @@ function InventoryItem ({ itemName, category, status, quantity, warehouseName })
             </div>
             <div className='item__icons'>
                 <img className='item__icons-single' src={deleteIcon} alt='delete' />
-                <img className='item__icons-single'
-                src={editIcon} alt='edit' />
+                <img className='item__icons-single' src={editIcon} alt='edit' />
             </div>
         </div>
+         
     )
-    
-
 }
 
 export default InventoryItem;
