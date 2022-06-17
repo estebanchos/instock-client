@@ -10,6 +10,13 @@
     align-items: center;
     justify-content: center;
     position: relative;
+    margin-bottom: 4rem;
+    @include tablet {
+        padding-bottom: 16rem;
+    }
+    @include desktop {
+        margin-bottom: 0;
+    }
 
     &__background {
         width: 100%;
@@ -49,16 +56,48 @@
 
 .details {
     position: relative;
-        z-index: 2;
+    z-index: 2;
+    @include tablet{
+        display: flex;
+    }
 
     &__flex-wrapper{
-        border: 1px solid magenta;
         padding: 0 1rem;
+        @include tablet{
+            padding: 0 2rem;
+            width: 45%;
+            // margin: 1rem 0;
+        }
+
+        &--row{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 75%;
+            // padding-left: 1rem;
+            @include tablet{
+                padding: 0 2rem;
+                width: 100%;
+                align-items: flex-start;
+            }
+        }
+
+        &--column{
+
+            @include tablet{
+                flex-direction: column;
+                border-left: 1px solid $cloud;
+                // margin: 1rem 0;
+                padding-left: 0;
+                width: 45%;
+                // padding: 0 2rem;
+            }
+
+        }
 
     }
 
     &__single-wrapper{
-        border: 1px solid greenyellow;
         margin: 1rem 0;
 
     }
@@ -67,6 +106,7 @@
         text-transform: uppercase;
         color: $slate;
         font-size: $m-h4-text-size;
+        padding: .2rem 0;
 
     }
 
