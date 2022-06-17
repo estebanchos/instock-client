@@ -22,7 +22,6 @@ class Inventories extends React.Component {
                 this.setState({
                     inventories: response.data
                 })
-                console.log(response.data)
             })
             .catch(error => console.error(error))
     };
@@ -38,8 +37,6 @@ class Inventories extends React.Component {
             </main>
         )
     }
-
-
 
 }
 

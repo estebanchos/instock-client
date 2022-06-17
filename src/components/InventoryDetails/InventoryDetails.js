@@ -15,7 +15,6 @@ class InventoryDetails extends React.Component {
         const clickedItemId = (this.props.match.params.Id)
         axios.get(inventoriesURL+clickedItemId)
             .then((res) => {
-                console.log(res)
                 this.setState ({
                     item: res.data
                 
