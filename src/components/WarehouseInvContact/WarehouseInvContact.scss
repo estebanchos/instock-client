@@ -64,6 +64,7 @@
 
         @include tablet {
             margin-top: 0;
+            font-size: $h4-text-size;
         }
     }
     
@@ -74,10 +75,6 @@
         margin: 0;
 
         @include tablet {
-            font-size: 0.6rem;
-        }
-
-        @include desktop {
             font-size: $p2-text-size;
         }
     }

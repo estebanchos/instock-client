@@ -108,13 +108,8 @@
         margin: 0;
 
         @include tablet {
-            font-size: 0.6rem;
-        }
-
-        @include desktop {
             font-size: $p2-text-size;
         }
-
     }
 
     &__link {

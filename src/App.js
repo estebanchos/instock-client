@@ -19,9 +19,9 @@ class App extends Component {
           <Switch>
             <Route path="/" exact component={WarehousesPage} />
             <Route path="/inventories" exact component={InventoriesPage} />
-            <Route path="/warehouses/:warehouseId" component={WarehouseDetailsPage} />
+            <Route path="/warehouses/:warehouseId" exact component={WarehouseDetailsPage} />
             <Route path='/inventories/inventory/new' component={NewInventoryPage} />
-            <Route path='/warehouses/warehouse/new' component={NewWarehousePage} />
+            <Route path='/warehouses/warehouse/new' exact component={NewWarehousePage} />
           </Switch> 
           <Footer />
         </BrowserRouter>

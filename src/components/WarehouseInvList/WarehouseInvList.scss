@@ -79,6 +79,10 @@
         color: $slate;
         display: flex;
         align-items: center;
+
+        @include tablet {
+            font-size: $h4-text-size;
+        }
     }
 
     &__titles-icon {
