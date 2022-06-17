@@ -40,6 +40,23 @@
   }
 }
 
+@mixin button-nav-style {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 0.5rem;
+  border: 0;
+  height: 2.25rem;
+  border-radius: 20px;
+  width: 100%;
+
+  @include tablet {
+    height: 2.375rem;
+    padding: 0 1rem;
+    width: fit-content;
+  }
+}
+
 @mixin input-style {
   border-radius: 20px;
   padding: 0.5rem 1rem;
