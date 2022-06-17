@@ -30,7 +30,7 @@ function Warehouse({ name, address, city, country, contactName, tel, email, id, 
                 <p className='warehouse__input'>{tel} {email}</p>
             </div>
             <div className='warehouse__icons'>
-                <img className='warehouse__icons--icon'src={deleteIcon} alt='delete' onClick={deleteClick(name)} name={name} id={id}/>
+                <img className='warehouse__icons--icon'src={deleteIcon} alt='delete' onClick={deleteClick} name={name} id={id}/>
                 <img className='warehouse__icons--icon'src={editIcon} alt='edit' />
             </div>
         </div>

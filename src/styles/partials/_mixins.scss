@@ -1,5 +1,6 @@
 @use "./breakpoints" as *;
 @use "./colors" as *;
+@use "./variables" as *;
 
 @mixin reset-list {
   margin: 0;
@@ -32,6 +33,7 @@
   height: 2.25rem;
   border-radius: 20px;
   width: 100%;
+  font-size: $m-h3-text-size;
 
   @include tablet {
     height: 2.375rem;
@@ -49,6 +51,7 @@
   height: 2.25rem;
   border-radius: 20px;
   width: 100%;
+  font-size: $m-h3-text-size;
 
   @include tablet {
     height: 2.375rem;
