@@ -46,7 +46,7 @@ class WarehouseDetails extends Component {
             <section className='warehouse-inv'>
                 <div className='warehouse-inv__background'></div>
                 <section className='warehouse-inv__inner'>
-                    <PageHeaderB headerTitle={this.state.warehouseContact.name}/>
+                    <PageHeaderB headerTitle={this.state.warehouseContact.name} path='/'/>
                     <WarehouseInvContact warehouseContact={this.state.warehouseContact} show={this.state.show}/>
                     <WarehouseInvList warehouse={this.state.warehouse}/>
                 </section>

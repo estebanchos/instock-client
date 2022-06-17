@@ -4,6 +4,8 @@ import { Component } from 'react';
 import { warehousesUrl } from '../../utils/api';
 import InvalidMessage from '../InvalidMessage/InvalidMessage';
 import axios from 'axios';
+import { Link } from 'react-router-dom';
+import ButtonNav from '../ButtonNav/ButtonNav';
 
 class WarehouseForm extends Component {
     state = {
@@ -151,10 +153,6 @@ class WarehouseForm extends Component {
         }
     }
 
-    returnToWarehouses = () => {
-        this.props.history.push('/warehouses')
-    }
-
     render() {
         return (
             <form className='warehouse-item' onSubmit={this.handleSubmit}>
@@ -263,7 +261,7 @@ class WarehouseForm extends Component {
                     </section>
                 </section>
                 <section className='warehouse-item__form-actions'>
-                    <Button prompt='Cancel' onClick={this.returnToWarehouses} />
+                    <ButtonNav prompt='Cancel' path='/' />
                     <Button color='blue' prompt='+ Add Warehouse' />
                 </section>
             </form>

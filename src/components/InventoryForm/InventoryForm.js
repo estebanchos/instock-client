@@ -5,6 +5,7 @@ import { categoryList, warehouseList } from '../../utils/dropdownLists';
 import { inventoriesUrl } from '../../utils/api';
 import InvalidMessage from '../InvalidMessage/InvalidMessage';
 import axios from 'axios';
+import ButtonNav from '../ButtonNav/ButtonNav';
 
 class InventoryForm extends Component {
     state = {
@@ -124,10 +125,6 @@ class InventoryForm extends Component {
         }
     }
 
-    returnToInventory = () => {
-        this.props.history.push('/inventories')
-    }
-
     render() {
         return (
             <form className='inventory-item' onSubmit={this.handleSubmit}>
@@ -225,7 +222,7 @@ class InventoryForm extends Component {
                     </section>
                 </section>
                 <section className='inventory-item__form-actions'>
-                    <Button prompt='Cancel' onClick={this.returnToInvetory} />
+                    <ButtonNav prompt='Cancel' path='/inventories' />
                     <Button color='blue' prompt='+ Add Item' />
                 </section>
             </form>
