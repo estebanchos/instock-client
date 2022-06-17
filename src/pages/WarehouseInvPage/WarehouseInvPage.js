@@ -1,4 +1,4 @@
-import './WarehouseDetailsPage.scss';
+import './WarehouseInvPage.scss';
 import { Component } from 'react';
 import axios from 'axios';
 import WarehouseInvList from '../../components/WarehouseInvList/WarehouseInvList';
