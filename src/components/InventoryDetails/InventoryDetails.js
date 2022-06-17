@@ -29,7 +29,7 @@ class InventoryDetails extends React.Component {
             <main className='details-main'>
                 <div className='details-main__background'></div>
                 <section className='details-main__foreground'>
-                    <PageHeaderB headerTitle={this.state.item.itemName}/>
+                    <PageHeaderB headerTitle={this.state.item.itemName} path="/inventories"/>
                     <div className='details'>
                             <div className='details__flex-wrapper'>
                                 {/* ITEM DESCRIPTION */}
