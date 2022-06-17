@@ -33,6 +33,7 @@ function InventoryList ({ inventories }){
 
             <ul className='inventory-list'>
                 {inventories.map((item) => {
+                    // console.log(item.status);
                     return <li
                         className='inventory-list__item'
                         key={item.id}
