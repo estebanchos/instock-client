@@ -142,7 +142,7 @@ class WarehouseForm extends Component {
             }
             axios.post(newWarehouseUrl, newWarehouse)
                 .then(_res => {
-                    // uncomment the below once warehouses page route is implemented
+                    // pending functionality to return to warehouses page
                     // setTimeout(() => this.returnToWarehouses(), 1000);
                 })
                 .catch(err => {
