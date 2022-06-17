@@ -31,7 +31,7 @@ class Inventories extends React.Component {
             <main className='inventory'>
                 <div className='inventory__background'></div>
                 <section className='inventory__foreground'>
-                <ListHeader listName='Inventory' buttonText='+Add New Item' />
+                <ListHeader listName='Inventory' buttonText='+ Add New Item' path='/inventories/inventory/new' />
                 <InventoryList inventories={this.state.inventories}/>
                 </section>
             </main>

@@ -37,8 +37,8 @@ class Warehouses extends Component {
                  <Modal show={this.state.show} warehouseName={this.state.selectedWarehouseName}/>
                 <div className='main__background'></div>
                 <section className='main__inner'>
-                    <ListHeader listName='Warehouses' buttonText='+Add New Warehouse' />
-                    <WarehouseList warehouses={this.state.warehouses} deleteClick={() => this.onClick} show={this.state.show}/>
+                    <ListHeader listName='Warehouses' buttonText='+ Add New Warehouse' path='/warehouses/warehouse/new' />
+                    <WarehouseList warehouses={this.state.warehouses}/>
                 </section>
             </main>
         );

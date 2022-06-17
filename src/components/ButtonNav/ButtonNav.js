@@ -1,10 +1,11 @@
-import './Button.scss';
+import { Link } from 'react-router-dom';
+import './ButtonNav.scss';
 
 // Component will takes 2 props: 
-// color: 'blue' 'red' or empty. If empty will default to the cancel button styling
+// path: the path where it should navigate to after clicking
 // prompt: CTA action of the button
 
-function Button({ color, prompt }) {
+function ButtonNav({ color, prompt, path }) {
     const assignColor = (color) => {
         switch (color) {
             case 'blue':
@@ -17,8 +18,8 @@ function Button({ color, prompt }) {
     }
 
     return (
-        <button className={`button${assignColor(color)}`}>{prompt}</button>
+        <Link to={path} className={`button${assignColor(color)}`}>{prompt}</Link>
     );
 }
 
-export default Button;
+export default ButtonNav;
