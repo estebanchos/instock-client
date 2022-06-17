@@ -43,6 +43,7 @@ function InventoryList ({ inventories }){
                             status={item.status}
                             quantity={item.quantity}
                             warehouseName ={item.warehouseName}
+                            id={item.id}
                         />
                     </li>
                 })}

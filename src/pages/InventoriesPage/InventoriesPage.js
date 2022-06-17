@@ -38,8 +38,6 @@ class Inventories extends React.Component {
         )
     }
 
-
-
 }
 
 export default Inventories;
