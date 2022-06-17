@@ -1,0 +1,148 @@
+@use '../../styles/global.scss' as *;
+@use '../../styles/partials/colors' as *;
+@use '../../styles/partials/mixins' as *;
+@use '../../styles/partials/variables' as *;
+@use '../../styles/global.scss' as *;
+
+.item{
+    display: flex;
+    flex-direction: column;
+    border-top: 1px solid $cloud;
+    
+    @include tablet{ 
+        flex-direction: row;
+    }
+
+    &__info{
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        width: 100%;
+        padding-left: 1rem;
+        @include tablet {
+            padding-left: 0;
+            align-items: center;
+        }
+       
+    }
+
+    &__info-left{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 50%;
+        @include tablet{
+            flex-direction: row;
+            justify-content: space-between;
+            width: 40%;
+        }
+        @include desktop{
+            justify-content: space-between;
+            width: 35%;
+            
+        }
+    }
+
+    &__subheader{
+        font-size: $m-h4-text-size;
+        line-height: $m-h4-line-height;
+        color: $slate;
+        text-transform: uppercase;
+        margin-top: 1rem;
+        @include tablet{
+            display: none;
+        }
+        
+    }
+
+    &__link{
+        margin: 0%;
+        display: flex;
+        align-items: center;
+        
+    }
+
+    &__item{
+        font-size: $m-p2-text-size;
+        color: $instock-black;
+        margin: 0;
+
+        &--clickable{
+            font-size: $m-p2-text-size;
+            color: $instock-indigo;
+            font-weight: 600;
+            margin: 0;
+        }
+
+        &--instock{
+            color: $green;
+            background-color: #15846312;
+            border-radius: 20px;
+            padding: .1rem .5rem;
+            text-align: center;
+            font-size: $m-p2-text-size;
+            font-weight: 600;
+            margin: 0;
+        }
+
+        &--outstock{
+            color: $red;
+            background-color: #15846312;
+            border-radius: 20px;
+            padding: .1rem .5rem;
+            text-align: center;
+            font-size: $m-p2-text-size;
+            font-weight: 600;
+            margin: 0;
+        }
+
+        &-wrapper{
+            width: 7rem;
+            display: flex;
+        }
+
+    }
+
+    &__info-right{
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        width: 50%; 
+        @include tablet{
+            flex-direction: row;
+            justify-content: flex-start;
+            width: 60%;
+        }
+        @include desktop{
+            justify-content: space-between;
+            width: 57%;
+            
+        }
+    }
+
+    &__icons{
+        display: flex;
+        justify-content: space-between;
+        padding: 1rem;
+        width: 3.2rem;
+        height: 3.2rem;
+        @include tablet{
+            align-items: flex-start;
+            justify-content: center;
+            padding: 0 .5rem;
+        }
+        @include desktop{
+            width: 8rem;
+            padding: 0;
+        }
+
+        &-single{
+            @include desktop{
+                margin: .5rem;
+            }
+        }
+        
+    }
+
+}

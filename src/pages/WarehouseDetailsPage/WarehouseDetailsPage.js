@@ -1,9 +1,9 @@
-import './WarehouseDetails.scss';
+import './WarehouseDetailsPage.scss';
 import { Component } from 'react';
 import axios from 'axios';
-import WarehouseInvList from '../WarehouseInvList/WarehouseInvList';
-import WarehouseInvContact from '../WarehouseInvContact/WarehouseInvContact';
-import PageHeaderB from '../PageHeaderB/PageHeaderB';
+import WarehouseInvList from '../../components/WarehouseInvList/WarehouseInvList';
+import WarehouseInvContact from '../../components/WarehouseInvContact/WarehouseInvContact';
+import PageHeaderB from '../../components/PageHeaderB/PageHeaderB';
 
 class WarehouseDetails extends Component {
     state = { 

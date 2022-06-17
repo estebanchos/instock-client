@@ -8,6 +8,11 @@
     &__display-block{
         display: block;
         padding: 0.5rem 1rem;
+
+        @include tablet {
+            display: flex;
+            padding: 1rem;
+        }
     }
     
     &__display-none {
@@ -16,15 +21,49 @@
     
     &__address {
 
+        @include tablet {
+            width: 40%;
+            
+        }
+
+        &--input {
+            display: flex;
+
+            @include tablet {
+                flex-direction: column;
+            }
+        }
     }
     
+    &__contact {
+        display: flex;
+        width: 100%;
+        padding-top: 1.5rem;
+        padding-bottom: 0.5rem;
+
+        @include tablet {
+            width: 60%;
+            border-left: 1px solid $cloud;
+            padding: 0;
+            padding-left: 2rem;
+        }
+    }
+    
+    &__contact-name {
+        width: 50%;
+    }
+
+    &__contact-info {
+        width: 50%;
+    }
+
     &__title {
         font-size: 0.6rem;
         color: $slate;
         margin-bottom: 0;
 
         @include tablet {
-            display: none;
+            margin-top: 0;
         }
     }
     
@@ -37,20 +76,9 @@
         @include tablet {
             font-size: 0.6rem;
         }
-    }
-    
-    &__contact {
-        display: flex;
-        width: 100%;
-        padding-top: 1.5rem;
-        padding-bottom: 0.5rem;
-    }
-    
-    &__contact-name {
-        width: 50%;
-    }
 
-    &__contact-info {
-        width: 50%;
+        @include desktop {
+            font-size: $p2-text-size;
+        }
     }
 }
