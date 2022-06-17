@@ -21,7 +21,11 @@
     }
 
     &__actions {
-
+        display: flex;
+        flex-direction: column;
+        @include tablet {
+            flex-direction: row;
+        }
     }
 
     &__search {
