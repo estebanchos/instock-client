@@ -3,6 +3,7 @@ import './InvItem.scss';
 import chevRight from '../../assets/icons/chevron-right.svg';
 import deleteIcon from '../../assets/icons/delete-outline.svg';
 import editIcon from '../../assets/icons/edit-blue.svg';
+import InOutStock from '../InOutStock/InOutStock';
 
 function Warehouse({ name, id, quantity, status, category }) {
     return (  
@@ -18,7 +19,7 @@ function Warehouse({ name, id, quantity, status, category }) {
             </div>
             <div className='inv-item__status'>
                 <h4 className='inv-item__title'>STATUS</h4>
-                <p className='inv-item__input inv-item__input--status'>{status}</p>
+                <InOutStock status={status}/>
             </div>
             <div className='inv-item__category'>
                 <h4 className='inv-item__title'>CATEGORY</h4>
