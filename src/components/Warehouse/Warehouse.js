@@ -4,7 +4,7 @@ import chevRight from '../../assets/icons/chevron-right.svg';
 import deleteIcon from '../../assets/icons/delete-outline.svg';
 import editIcon from '../../assets/icons/edit-blue.svg';
 
-function Warehouse({ name, address, city, country, contactName, tel, email, id }) {
+function Warehouse({ name, address, city, country, contactName, tel, email, id, deleteClick }) {
     return (  
         <div className='warehouse'>
             <div className='warehouse__name'>
@@ -29,7 +29,7 @@ function Warehouse({ name, address, city, country, contactName, tel, email, id }
                 <p className='warehouse__input'>{tel} {email}</p>
             </div>
             <div className='warehouse__icons'>
-                <img className='warehouse__icons--icon'src={deleteIcon} alt='delete'/>
+                <img className='warehouse__icons--icon'src={deleteIcon} alt='delete' onClick={deleteClick} name={name} id={id}/>
                 <img className='warehouse__icons--icon'src={editIcon} alt='edit' />
             </div>
         </div>
