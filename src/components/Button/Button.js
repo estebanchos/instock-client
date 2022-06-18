@@ -4,7 +4,7 @@ import './Button.scss';
 // color: 'blue' 'red' or empty. If empty will default to the cancel button styling
 // prompt: CTA action of the button
 
-function Button({ color, prompt }) {
+function Button({ color, prompt, handler }) {
     const assignColor = (color) => {
         switch (color) {
             case 'blue':
@@ -17,7 +17,7 @@ function Button({ color, prompt }) {
     }
 
     return (
-        <button className={`button${assignColor(color)}`}>{prompt}</button>
+        <button className={`button${assignColor(color)}`} onClick={handler}>{prompt}</button>
     );
 }
 

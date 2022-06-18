@@ -34,6 +34,7 @@
   border-radius: 20px;
   width: 100%;
   font-size: $m-h3-text-size;
+  cursor: pointer;
 
   @include tablet {
     height: 2.375rem;

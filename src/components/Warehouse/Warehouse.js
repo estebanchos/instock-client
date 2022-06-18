@@ -3,7 +3,6 @@ import './Warehouse.scss';
 import chevRight from '../../assets/icons/chevron-right.svg';
 import deleteIcon from '../../assets/icons/delete-outline.svg';
 import editIcon from '../../assets/icons/edit-blue.svg';
-import Modal from '../Modal/Modal';
 
 function Warehouse({ name, address, city, country, contactName, tel, email, id, deleteClick }) {
     return (  

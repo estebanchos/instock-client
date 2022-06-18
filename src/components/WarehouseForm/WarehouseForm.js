@@ -4,7 +4,6 @@ import { Component } from 'react';
 import { warehousesUrl } from '../../utils/api';
 import InvalidMessage from '../InvalidMessage/InvalidMessage';
 import axios from 'axios';
-import { Link } from 'react-router-dom';
 import ButtonNav from '../ButtonNav/ButtonNav';
 
 class WarehouseForm extends Component {

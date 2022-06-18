@@ -1,9 +1,8 @@
 import './Modal.scss';
 import Button from '../Button/Button';
-import ButtonNav from '../ButtonNav/ButtonNav';
 import closeIcon from '../../assets/icons/close.svg';
 
-function Modal( { show, warehouseName, warehouseId }) {
+function Modal( { show, warehouseName, selectedWarehouseId, hideModal, deleteWarehouse }) {
     const showHideClass = show ? "modal display-block" : "modal display-none" 
 
     return (  
@@ -14,19 +13,19 @@ function Modal( { show, warehouseName, warehouseId }) {
                         <h2 className='modal__main-title'>Delete {warehouseName} warehouse?</h2>
                         <p className='modal__main-text'>
                             Please confirm that you'd like to delete the {warehouseName} from the list of warehouses.
-                            You wont' be able to undo this action.    
+                            You won't be able to undo this action.    
                         </p>
                     </div>
                     <div className='modal__buttons'>
                         <div className='modal__buttons-cancel'>
-                            <ButtonNav prompt='Cancel' path={`/`}/>
+                            <Button prompt='Cancel' handler={hideModal} />
                         </div>
                         <div className='modal__buttons-delete'>
-                            <Button color='red' prompt='Delete' /> 
+                            <Button color='red' prompt='Delete' handler={() => deleteWarehouse(selectedWarehouseId)} /> 
                         </div>
                     </div>
                     <div className='modal__close'>
-                        <img src={closeIcon} alt='close-icon' />
+                        <img src={closeIcon} alt='close-icon' onClick={hideModal} />
                     </div>
                 </div>
             </div>
