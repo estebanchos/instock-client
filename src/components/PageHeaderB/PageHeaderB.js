@@ -4,7 +4,7 @@ import ButtonEdit from '../ButtonEdit/ButtonEdit';
 import { Link } from 'react-router-dom';
 
 // Component takes prop for whatever the title of the page needs to be
-function PageHeaderB({ headerTitle, path }) {
+function PageHeaderB({ headerTitle, path, inventoryId }) {
     return (
         <div className='page-head__container'>
             <div className='page-head__left'>
@@ -14,7 +14,7 @@ function PageHeaderB({ headerTitle, path }) {
                 <h1 className='page-head__title'>{headerTitle}</h1>
             </div>
             <div className='button__container'>
-                <ButtonEdit path="/inventories/inventory/edit"/>
+            <ButtonEdit path={`/inventories/${inventoryId}/edit`} />
             </div>
         </div>
     );

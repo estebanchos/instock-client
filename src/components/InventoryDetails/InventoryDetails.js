@@ -8,7 +8,7 @@ const inventoriesURL = "http://localhost:8080/inventories/"
 
 class InventoryDetails extends React.Component {
     state = { 
-        item: [],
+        item: {},
      } 
 
     componentDidMount() {
@@ -28,7 +28,7 @@ class InventoryDetails extends React.Component {
             <main className='details-main'>
                 <div className='details-main__background'></div>
                 <section className='details-main__foreground'>
-                    <PageHeaderB headerTitle={this.state.item.itemName} path="/inventories"/>
+                    <PageHeaderB headerTitle={this.state.item.itemName} path="/inventories" inventoryId={this.state.item.id} />
                     <div className='details'>
                             <div className='details__flex-wrapper'>
                                 {/* ITEM DESCRIPTION */}

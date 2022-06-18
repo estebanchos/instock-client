@@ -3,13 +3,13 @@ import PageHeaderSimple from '../../components/PageHeaderSimple/PageHeaderSimple
 import './EditInventoryPage.scss';
 
 
-function EditInventoryPage() {
+function EditInventoryPage(inventoryId) {
     return ( 
         <>
             <main className="edit-inv">
                 <div className='edit-inv__background'></div>
                     <div className='edit-inv__foreground'>
-                        <PageHeaderSimple title='Edit Inventory Item' />
+                        <PageHeaderSimple title='Edit Inventory Item' path={`/inventories/${inventoryId}`}/>
                         <InventoryForm prompt="Save" />
                     </div>
             </main>

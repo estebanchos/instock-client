@@ -44,7 +44,9 @@ function InventoryItem ({ itemName, category, status, quantity, warehouseName, i
             </div>
             <div className='item__icons'>
                 <img className='item__icons-single' src={deleteIcon} alt='delete' />
-                <img className='item__icons-single' src={editIcon} alt='edit' />
+                <Link to={`/inventories/${id}/edit`}>
+                    <img className='item__icons-single' src={editIcon} alt='edit' />
+                </Link>
             </div>
         </div>
          

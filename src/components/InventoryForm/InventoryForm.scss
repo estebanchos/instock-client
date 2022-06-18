@@ -61,11 +61,15 @@ label {
         }
     }
 
-    // &__input-container {
-    //     display: flex;
-    //     flex-direction: column;
-    //     margin: 1rem 0;
+    &__input-container {
+        display: flex;
+        flex-direction: column;
+        margin: 1rem 0;
 
+        &--hide{
+            display: none;
+        }
+    }
 
     &__status-container {
         margin: 1rem 0;
@@ -150,19 +154,19 @@ label {
         width: 50%;
     }
 
-    // &__quantity {
-    //     @include input-style;
-    //     border: 1px solid $cloud;
+    &__quantity {
+        @include input-style;
+        border: 1px solid $cloud;
 
-    //     @include desktop {
-    //         width: 22%;
-    //     }
+        @include desktop {
+            width: 22%;
+        }
 
-    //     &--error {
-    //         @include input-style;
-    //         border: 1px solid $red;
-    //     }
-    // }
+        &--error {
+            @include input-style;
+            border: 1px solid $red;
+        }
+    }
 }
 
 .button--action{
