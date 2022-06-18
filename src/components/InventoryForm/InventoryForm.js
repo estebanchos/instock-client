@@ -195,9 +195,10 @@ class InventoryForm extends Component {
                         </div>
                     </section>
 
-
+{/* ITEM AVAILABILITY - STATUS, QTY, WAREHOUSE */}
                     <section className='inventory-item__availability'>
                         <h2 className='inventory-item__subheader'>Item Availability</h2>
+                        {/* STATUS */}
                         <div className='inventory-item__status-container'>
                             <label className='inventory-item__label' htmlFor=''>Status</label>
                             <div className='inventory-item__radio-container'>
@@ -208,7 +209,6 @@ class InventoryForm extends Component {
                                     value='In stock' 
                                     onChange={this.handleChange}
                                     onClick={this.quantityShow}
-                                    // checked
                                     />
                                     <label htmlFor='in-stock' >In stock</label>
                                 </div>
@@ -216,17 +216,13 @@ class InventoryForm extends Component {
                                     <input type='radio' name='status' id='out-of-stock' value='Out of stock' 
                                     onChange={this.handleChange} 
                                     onClick={this.quantityHide}
-                                    // checked 
                                     />
                                     <label htmlFor='out-of-stock' >Out of stock</label>
                                 </div>
                             </div>
                         </div>
-
-
+                        {/*  QUANTITY */}
                         <div className='inventory-item__status-container'>
-                            {/* added div for visible/hidden styling of quantity */}
-                            {/* <div className={this.state.showQty ? 'inventory-item__input-container--visible' : 'inventory-item__input-container--hidden'}> */}
                             <ShowHideQty 
                             isQtyValid={this.state.isValidQuantity}
                             showHide={this.state.showQty} 
@@ -234,18 +230,8 @@ class InventoryForm extends Component {
                             quantity={this.state.quantity}
                             />
                             <InvalidMessage isValid={this.state.isValidQuantity} />
-                                {/* <label className='inventory-item__label' htmlFor=''>Quantity</label>
-                                <input
-                                    className={this.state.isValidQuantity ? 'input-type__quantity' : 'input-type__quantity--error'}
-                                    name='quantity'
-                                    id='quantity'
-                                    value={this.state.quantity}
-                                    onChange={this.handleChange}
-                                />
-                                <InvalidMessage isValid={this.state.isValidQuantity} /> */}
                             </div>
-                        {/* </div> */}
-
+                        {/* WAREHOUSE */}
                         <div className='inventory-item__input-container'>
                             <label className='inventory-item__label' htmlFor=''>Warehouse</label>
                             <select
@@ -266,6 +252,7 @@ class InventoryForm extends Component {
                         </div>
                     </section>
                 </section>
+                {/* BUTTONS */}
                 <section className='inventory-item__form-actions'>
                     <ButtonNav prompt='Cancel' path='/inventories' />
                     <Button color='blue' prompt={prompt}/>

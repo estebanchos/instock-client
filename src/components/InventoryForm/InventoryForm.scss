@@ -10,9 +10,12 @@ label {
 }
 
 .inventory-item {
+    margin: 0;
+    // border-bottom: 1px solid $cloud;
+
     &__form-inputs {
-        border-top: 1px solid $cloud;
-        margin-top: 1rem;
+        // border-top: 1px solid $cloud;
+        // margin-top: 0rem;
 
         @include tablet {
             display: flex;
@@ -29,6 +32,7 @@ label {
             flex-direction: row-reverse;
             padding-right: 2rem;
         }
+       
     }
 
     &__details {
@@ -45,7 +49,7 @@ label {
 
     &__availability {
         padding: 0 1rem;
-        margin-bottom: 2rem;
+        margin-bottom: 1rem;
         border-top: 1px solid $cloud;
 
         @include tablet {
@@ -65,6 +69,9 @@ label {
 
     &__status-container {
         margin: 1rem 0;
+        @include desktop {
+            width: 50%;
+        }
     }
 
     &__radio-container {
@@ -131,6 +138,7 @@ label {
         padding: 0.5rem 1rem;
         border: 1px solid $cloud;
         color: $slate;
+        
 
         &--error {
             @include input-style;
@@ -142,17 +150,24 @@ label {
         width: 50%;
     }
 
-    &__quantity {
-        @include input-style;
-        border: 1px solid $cloud;
+    // &__quantity {
+    //     @include input-style;
+    //     border: 1px solid $cloud;
 
-        @include desktop {
-            width: 22%;
-        }
+    //     @include desktop {
+    //         width: 22%;
+    //     }
 
-        &--error {
-            @include input-style;
-            border: 1px solid $red;
-        }
+    //     &--error {
+    //         @include input-style;
+    //         border: 1px solid $red;
+    //     }
+    // }
+}
+
+.button--action{
+    padding: 1rem;
+    @include tablet{
+    margin-left: 1rem;
     }
 }

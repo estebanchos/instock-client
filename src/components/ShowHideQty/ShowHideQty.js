@@ -12,8 +12,8 @@ function showHideQty ({showHide, isValidQuantity, quantity, handleChange}) {
                     className={isValidQuantity ? 'input-type__quantity' : 'input-type__quantity--error'}
                     name='quantity'
                     id='quantity'
-                    // value={quantity}
-                    // onChange={handleChange}
+                    value={quantity}
+                    onChange={handleChange}
                 />
                 
         </div>

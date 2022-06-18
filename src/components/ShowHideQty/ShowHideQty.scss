@@ -12,11 +12,39 @@
     
         &--visible{
             display: flex;
+            flex-direction: column;
         }
     
         &--hidden{
             display: none;
         }
+    }
+
+}
+
+// .input-type__quantity{
+//     border: none;
+    
+//     &--error{
+
+//     }
+// }
+
+.input-type__quantity {
+    @include input-style;
+    // border: 1px solid $cloud;
+
+    @include desktop {
+        width: 50%;
+
+    &--error {
+        @include input-style;
+        border: 1px solid $red;
+        @include desktop {
+            width: 50%;
+
+        }
+    }
     }
 
 }

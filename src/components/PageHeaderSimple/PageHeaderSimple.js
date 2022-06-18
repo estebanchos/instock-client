@@ -9,7 +9,8 @@ function PageHeaderSimple({ title }) {
     
     return (
         <div className='page-header'>
-            <div className='page-header__background'></div>
+            {/* <div className='page-header__background'>
+            </div> */}
             <div className='page-header__content'>
                 <img 
                 className='page-header__icon' 
