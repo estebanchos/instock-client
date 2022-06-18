@@ -41,10 +41,16 @@
             justify-content: end;
         }
     }
-
+    &__nav-container {
+        display: flex;
+        width: 50%;
+        @include tablet {
+            width: auto;
+        }
+    }
     &__nav-item {
         padding: 0.5rem 2rem;
-        width: 50%;
+        width: 100%;
         text-align: center;
         border-radius: 20px;
         font-size: $m-h3-text-size;
