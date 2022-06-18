@@ -6,7 +6,6 @@ import { inventoriesUrl } from '../../utils/api';
 import InvalidMessage from '../InvalidMessage/InvalidMessage';
 import axios from 'axios';
 import ButtonNav from '../ButtonNav/ButtonNav';
-import ShowHideQty from '../ShowHideQty/ShowHideQty';
 
 class InventoryForm extends Component {
     state = {
@@ -118,7 +117,6 @@ class InventoryForm extends Component {
             }
             axios.post(newItemUrl, newItem)
                 .then(_res => {
-                    // uncomment the below once inventories page route is implemented
                     setTimeout(() => this.returnToInventory(), 1000);
                 })
                 .catch(err => {
@@ -233,17 +231,6 @@ class InventoryForm extends Component {
                             />
                             <InvalidMessage isValid={this.state.isValidQuantity} />
                         </div>
-
-
-                        {/* <div className='inventory-item__status-container'>
-                            <ShowHideQty 
-                            isQtyValid={this.state.isValidQuantity}
-                            showHide={this.state.showQty} 
-                            handleChange={this.state.handleChange}
-                            quantity={this.state.quantity}
-                            />
-                            <InvalidMessage isValid={this.state.isValidQuantity} />
-                            </div> */}
                         {/* WAREHOUSE */}
                         <div className='inventory-item__input-container'>
                             <label className='inventory-item__label' htmlFor=''>Warehouse</label>

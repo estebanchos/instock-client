@@ -2,9 +2,8 @@ import './PageHeaderSimple.scss';
 import goBackIcon from '../../assets/icons/arrow-back.svg'
 import {Link} from 'react-router-dom';
 
+// Takes path prop so when invoked clicking arrow can direct to either warehouse or inventory item
 
-
-// give it path prop so when calling in you can direct to either the warehouse or inventory item you were on
 function PageHeaderSimple({ title, path }) {
     
     return (

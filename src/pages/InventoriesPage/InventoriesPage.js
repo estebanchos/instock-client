@@ -1,6 +1,5 @@
 import React from 'react';
 import './InventoriesPage.scss';
-import {Link} from 'react-router-dom';
 import InventoryList from '../../components/InventoryList/InventoryList';
 import ListHeader from '../../components/ListHeader/ListHeader';
 

@@ -6,8 +6,6 @@ import editIcon from '../../assets/icons/edit-blue.svg';
 import chevRight from '../../assets/icons/chevron-right.svg';
 import InOutStock from '../InOutStock/InOutStock';
 
-// // DATA
-
 function InventoryItem ({ itemName, category, status, quantity, warehouseName, id }){
 
     return (

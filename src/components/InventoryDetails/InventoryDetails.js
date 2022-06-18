@@ -22,13 +22,14 @@ class InventoryDetails extends React.Component {
             .catch((error) => console.error(error))
     }
 
+
     render() { 
         if(!this.state.item) return "Can't load page"
         return (
             <main className='details-main'>
                 <div className='details-main__background'></div>
                 <section className='details-main__foreground'>
-                    <PageHeaderB headerTitle={this.state.item.itemName} path="/inventories" inventoryId={this.state.item.id} />
+                    <PageHeaderB headerTitle={this.state.item.itemName} prevPageUrl="/inventories" editUrl={`/inventories/${this.state.item.id}/edit`} />
                     <div className='details'>
                             <div className='details__flex-wrapper'>
                                 {/* ITEM DESCRIPTION */}
@@ -42,7 +43,6 @@ class InventoryDetails extends React.Component {
                                         <p className='details__text'>{this.state.item.category}</p>
                                 </div>
                             </div>
-
                             <div className='details__flex-wrapper details__flex-wrapper--column'>
                                 <div className=' details__flex-wrapper--row'>
                                     {/* STATUS */}
@@ -50,15 +50,12 @@ class InventoryDetails extends React.Component {
                                         <h4 className='details__subheader'>Status:</h4>
                                         <InOutStock status={this.state.item.status}/>
                                     </div>
-
                                     {/* QUANTITY */}
                                     <div className='details__single-wrapper'>
                                         <h4 className='details__subheader'>Quantity:</h4>
                                         <p className='details__text'>{this.state.item.quantity}</p>
                                     </div>
                                 </div>
-
-                    
                                 <div className='details__flex-wrapper--row'>
                                         {/* WAREHOUSE */}
                                         <div className='details__single-wrapper'>
