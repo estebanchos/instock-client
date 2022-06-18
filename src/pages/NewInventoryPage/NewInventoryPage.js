@@ -8,7 +8,7 @@ function NewInventoryPage() {
         <>
             <main>
                 <PageHeaderSimple title='Add New Inventory Item' />
-                <InventoryForm />
+                <InventoryForm prompt="+ Add Item"/>
             </main>
         </>
      );
