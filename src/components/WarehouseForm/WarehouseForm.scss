@@ -11,7 +11,6 @@ label {
 
 .warehouse-item {
     &__form-inputs {
-        border-top: 1px solid $cloud;
         margin-top: 1rem;
 
         @include tablet {

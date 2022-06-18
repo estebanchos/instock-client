@@ -10,6 +10,7 @@ import WarehouseInvPage from './pages/WarehouseInvPage/WarehouseInvPage';
 import NewWarehousePage from './pages/NewWarehousePage/NewWarehousePage';
 import InventoryDetails from './components/InventoryDetails/InventoryDetails';
 import EditInventoryPage from './pages/EditInventoryPage/EditInventoryPage';
+import EditWarehousePage from './pages/EditWarehousePage/EditWarehousePage';
 
 class App extends Component {
 
@@ -26,6 +27,8 @@ class App extends Component {
             <Route path='/inventories/inventory/new' component={NewInventoryPage} />
             <Route path='/warehouses/warehouse/new' exact component={NewWarehousePage} />
             <Route path='/inventories/:inventoryId/edit' exact component={EditInventoryPage} />
+            <Route path='/warehouses/:warehouseId/edit' exact component={EditWarehousePage} />
+
           </Switch> 
           <Footer />
         </BrowserRouter>
