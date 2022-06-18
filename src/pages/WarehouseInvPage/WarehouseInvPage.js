@@ -16,6 +16,7 @@ class WarehouseDetails extends Component {
         const id = (this.props.match.params.warehouseId)
         axios.get(`http://localhost:8080/warehouses/${id}`)
             .then((res) => {
+                // console.log(id);
                 this.setState ({
                     ...this.state,
                     warehouse: res.data,
@@ -40,13 +41,15 @@ class WarehouseDetails extends Component {
             .catch((error) => console.error(error))
         } 
     }
-
+    
     render() { 
+        const id = (this.props.match.params.warehouseId)
+
         return (
             <section className='warehouse-inv'>
                 <div className='warehouse-inv__background'></div>
                 <section className='warehouse-inv__inner'>
-                    <PageHeaderB headerTitle={this.state.warehouseContact.name} path='/'/>
+                    <PageHeaderB headerTitle={this.state.warehouseContact.name} prevPageUrl='/' editUrl={`/warehouses/${id}/edit`}/>
                     <WarehouseInvContact warehouseContact={this.state.warehouseContact} show={this.state.show}/>
                     <WarehouseInvList warehouse={this.state.warehouse}/>
                 </section>

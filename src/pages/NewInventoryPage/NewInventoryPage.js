@@ -7,7 +7,7 @@ function NewInventoryPage() {
     return ( 
         <>
             <main>
-                <PageHeaderSimple title='Add New Inventory Item' />
+                <PageHeaderSimple title='Add New Inventory Item' path="/inventories"/>
                 <InventoryForm prompt="+ Add Item"/>
             </main>
         </>

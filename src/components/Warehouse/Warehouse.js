@@ -3,6 +3,7 @@ import './Warehouse.scss';
 import chevRight from '../../assets/icons/chevron-right.svg';
 import deleteIcon from '../../assets/icons/delete-outline.svg';
 import editIcon from '../../assets/icons/edit-blue.svg';
+import {Link} from 'react-router-dom';
 
 function Warehouse({ name, address, city, country, contactName, tel, email, id, deleteClick }) {
     return (  
@@ -30,7 +31,9 @@ function Warehouse({ name, address, city, country, contactName, tel, email, id, 
             </div>
             <div className='warehouse__icons'>
                 <img className='warehouse__icons--icon'src={deleteIcon} alt='delete' onClick={deleteClick} name={name} id={id}/>
-                <img className='warehouse__icons--icon'src={editIcon} alt='edit' />
+                <Link to={`/warehouses/${id}/edit`}>
+                    <img className='warehouse__icons--icon'src={editIcon} alt='edit' />
+                </Link>
             </div>
         </div>
     );

@@ -7,7 +7,7 @@ function NewWarehousePage() {
     return ( 
         <>
             <main>
-                <PageHeaderSimple title='Add New Warehouse' />
+                <PageHeaderSimple title='Add New Warehouse' path="/"/>
                 <WarehouseForm />
             </main>
         </>
