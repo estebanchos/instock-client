@@ -57,11 +57,11 @@ label {
         }
     }
 
-    &__input-container {
-        display: flex;
-        flex-direction: column;
-        margin: 1rem 0;
-    }
+    // &__input-container {
+    //     display: flex;
+    //     flex-direction: column;
+    //     margin: 1rem 0;
+
 
     &__status-container {
         margin: 1rem 0;
@@ -89,9 +89,6 @@ label {
             color: $slate;
         }
     }
-
-
-
 
 }
 

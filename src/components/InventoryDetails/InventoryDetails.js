@@ -23,7 +23,7 @@ class InventoryDetails extends React.Component {
     }
 
     render() { 
-        if(!this.state.item) return "loading"
+        if(!this.state.item) return "Can't load page"
         return (
             <main className='details-main'>
                 <div className='details-main__background'></div>

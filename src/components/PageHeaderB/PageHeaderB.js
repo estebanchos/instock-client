@@ -14,7 +14,7 @@ function PageHeaderB({ headerTitle, path }) {
                 <h1 className='page-head__title'>{headerTitle}</h1>
             </div>
             <div className='button__container'>
-                <ButtonEdit />
+                <ButtonEdit path="/inventories/inventory/edit"/>
             </div>
         </div>
     );

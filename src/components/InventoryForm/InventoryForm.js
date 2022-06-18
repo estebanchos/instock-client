@@ -6,6 +6,7 @@ import { inventoriesUrl } from '../../utils/api';
 import InvalidMessage from '../InvalidMessage/InvalidMessage';
 import axios from 'axios';
 import ButtonNav from '../ButtonNav/ButtonNav';
+import ShowHideQty from '../ShowHideQty/ShowHideQty';
 
 class InventoryForm extends Component {
     state = {
@@ -20,7 +21,8 @@ class InventoryForm extends Component {
         isValidCategory: true,
         isValidStatus: true,
         isValidQuantity: true,
-        isValidWarehouseId: true
+        isValidWarehouseId: true,
+        showQty: true
     }
 
     handleChange = (e) => {
@@ -117,7 +119,7 @@ class InventoryForm extends Component {
             axios.post(newItemUrl, newItem)
                 .then(_res => {
                     // uncomment the below once inventories page route is implemented
-                    // setTimeout(() => this.returnToInventory(), 1000);
+                    setTimeout(() => this.returnToInventory(), 1000);
                 })
                 .catch(err => {
                     console.error("Unable to post: ", err)
@@ -125,7 +127,24 @@ class InventoryForm extends Component {
         }
     }
 
+    // click handler for IN STOCK radio input
+    quantityShow = (e) => {
+        this.setState({
+            showQty: true
+        })
+    }
+
+    // click handler for OUT OF STOCK radio input
+    quantityHide = (e) => {
+        this.setState({
+            showQty: false
+        })
+        e.target.setAttribute("checked", true)
+    }
+
+
     render() {
+        const {prompt} = this.props
         return (
             <form className='inventory-item' onSubmit={this.handleSubmit}>
                 <section className='inventory-item__form-inputs'>
@@ -175,32 +194,58 @@ class InventoryForm extends Component {
                             <InvalidMessage isValid={this.state.isValidCategory} />
                         </div>
                     </section>
+
+
                     <section className='inventory-item__availability'>
                         <h2 className='inventory-item__subheader'>Item Availability</h2>
                         <div className='inventory-item__status-container'>
                             <label className='inventory-item__label' htmlFor=''>Status</label>
                             <div className='inventory-item__radio-container'>
                                 <div className='input-type__option'>
-                                    <input type='radio' name='status' id='in-stock' value='In stock' onChange={this.handleChange} checked />
+                                    <input type='radio' 
+                                    name='status' 
+                                    id='in-stock' 
+                                    value='In stock' 
+                                    onChange={this.handleChange}
+                                    onClick={this.quantityShow}
+                                    // checked
+                                    />
                                     <label htmlFor='in-stock' >In stock</label>
                                 </div>
                                 <div className='input-type__option'>
-                                    <input type='radio' name='status' id='out-of-stock' value='Out of stock' onChange={this.handleChange} />
+                                    <input type='radio' name='status' id='out-of-stock' value='Out of stock' 
+                                    onChange={this.handleChange} 
+                                    onClick={this.quantityHide}
+                                    // checked 
+                                    />
                                     <label htmlFor='out-of-stock' >Out of stock</label>
                                 </div>
                             </div>
                         </div>
-                        <div className='inventory-item__input-container'>
-                            <label className='inventory-item__label' htmlFor=''>Quantity</label>
-                            <input
-                                className={this.state.isValidQuantity ? 'input-type__quantity' : 'input-type__quantity--error'}
-                                name='quantity'
-                                id='quantity'
-                                value={this.state.quantity}
-                                onChange={this.handleChange}
+
+
+                        <div className='inventory-item__status-container'>
+                            {/* added div for visible/hidden styling of quantity */}
+                            {/* <div className={this.state.showQty ? 'inventory-item__input-container--visible' : 'inventory-item__input-container--hidden'}> */}
+                            <ShowHideQty 
+                            isQtyValid={this.state.isValidQuantity}
+                            showHide={this.state.showQty} 
+                            handleChange={this.state.handleChange}
+                            quantity={this.state.quantity}
                             />
                             <InvalidMessage isValid={this.state.isValidQuantity} />
-                        </div>
+                                {/* <label className='inventory-item__label' htmlFor=''>Quantity</label>
+                                <input
+                                    className={this.state.isValidQuantity ? 'input-type__quantity' : 'input-type__quantity--error'}
+                                    name='quantity'
+                                    id='quantity'
+                                    value={this.state.quantity}
+                                    onChange={this.handleChange}
+                                />
+                                <InvalidMessage isValid={this.state.isValidQuantity} /> */}
+                            </div>
+                        {/* </div> */}
+
                         <div className='inventory-item__input-container'>
                             <label className='inventory-item__label' htmlFor=''>Warehouse</label>
                             <select
@@ -223,7 +268,7 @@ class InventoryForm extends Component {
                 </section>
                 <section className='inventory-item__form-actions'>
                     <ButtonNav prompt='Cancel' path='/inventories' />
-                    <Button color='blue' prompt='+ Add Item' />
+                    <Button color='blue' prompt={prompt}/>
                 </section>
             </form>
         );
