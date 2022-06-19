@@ -20,6 +20,7 @@ class InventoryDetails extends React.Component {
                 
             })})
             .catch((error) => console.error(error))
+        window.scrollTo(0, 0)
     }
 
 
