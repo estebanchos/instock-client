@@ -173,15 +173,12 @@ class WarehouseForm extends Component {
                 //put
                 const editWarehouseUrl = `${warehousesUrl}${this.state.warehouseId}/edit`
                 axios.put(editWarehouseUrl, newWarehouse)
-                    .then(_res => console.log("edited"))
+                    .then(_res => setTimeout(() => this.returnToPrevPage(), 1000))
                     .catch(err => console.error("Unable to update: ", err))
             } else {
                 const newWarehouseUrl = `${warehousesUrl}new`
                 axios.post(newWarehouseUrl, newWarehouse)
-                    .then(_res => {
-                        // pending functionality to return to warehouses page
-                        // setTimeout(() => this.returnToWarehouses(), 1000);
-                    })
+                    .then(_res => setTimeout(() => this.returnToPrevPage(), 1000))
                     .catch(err => console.error("Unable to create new warehouse: ", err))
             }
         }

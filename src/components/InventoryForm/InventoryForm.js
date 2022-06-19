@@ -144,13 +144,12 @@ class InventoryForm extends Component {
                 //put
                 const editItemUrl = `${inventoriesUrl}${this.state.itemId}/edit`
                 axios.put(editItemUrl, newItem)
-                    .then(_res => console.log("edited"))
+                    .then(_res => setTimeout(() => this.returnToPrevPage(), 1000))
                     .catch(err => console.error("Unable to update: ", err))
             } else {
                 const newItemUrl = `${inventoriesUrl}new`
                 axios.post(newItemUrl, newItem)
-                    .then(_res => console.log("added"))
-                    // setTimeout(() => this.returnToInventory(), 1000)
+                    .then(_res => setTimeout(() => this.returnToPrevPage(), 1000))
                     .catch(err => console.error("Unable to create: ", err))
             }
         }
