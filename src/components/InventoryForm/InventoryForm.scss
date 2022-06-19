@@ -22,10 +22,10 @@ label {
     &__form-actions {
         background-color: $light-grey;
         display: flex;
-        padding: 1rem 0;
+        padding: 1rem;
 
         @include tablet {
-            flex-direction: row-reverse;
+            justify-content: end;
             padding-right: 2rem;
         }
        
@@ -173,5 +173,5 @@ label {
 }
 
 .cancel-button {
-    @include cancel-button-style
+    @include cancel-button-style;
 }

@@ -58,7 +58,6 @@ class WarehouseDetails extends Component {
                 warehouse: res.data
             })
             this.hideModal()
-            console.log('deleted')
         })
         .catch(err => console.error(err))     
     }

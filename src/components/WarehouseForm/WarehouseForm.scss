@@ -89,5 +89,10 @@ label {
 }
 
 .cancel-button {
-    @include cancel-button-style
+    @include cancel-button-style;
+    margin-right: 1rem;
+
+    @include tablet {
+        margin-right: 0;
+    }
 }

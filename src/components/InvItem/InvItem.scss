@@ -85,7 +85,8 @@
         }
 
         &--icon {
-
+            cursor: pointer;
+            
             @include tablet {
                 padding-left: 1rem;
             }
