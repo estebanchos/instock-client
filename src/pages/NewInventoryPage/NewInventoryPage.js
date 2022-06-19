@@ -6,9 +6,12 @@ import './NewInventoryPage.scss';
 function NewInventoryPage(props) {
     return ( 
         <>
-            <main>
-                <PageHeaderSimple title='Add New Inventory Item' path="/inventories"/>
-                <InventoryForm prompt="+ Add Item" {...props}/>
+            <main className='new-inv'>
+            <div className='new-inv__background'></div>
+                <div className='new-inv__foreground'>
+                    <PageHeaderSimple title='Add New Inventory Item' path="/inventories"/>
+                    <InventoryForm prompt="+ Add Item" {...props}/>
+                </div>
             </main>
         </>
      );
