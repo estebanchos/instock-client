@@ -6,7 +6,7 @@ import editIcon from '../../assets/icons/edit-blue.svg';
 import chevRight from '../../assets/icons/chevron-right.svg';
 import InOutStock from '../InOutStock/InOutStock';
 
-function InventoryItem ({ itemName, category, status, quantity, warehouseName, id }){
+function InventoryItem ({ itemName, category, status, quantity, warehouseName, id, deleteClick }){
 
     return (
        
@@ -41,7 +41,7 @@ function InventoryItem ({ itemName, category, status, quantity, warehouseName, i
                 </div>
             </div>
             <div className='item__icons'>
-                <img className='item__icons-single' src={deleteIcon} alt='delete' />
+                <img className='item__icons-single' src={deleteIcon} alt='delete' onClick={deleteClick} name={itemName} id={id}/>
                 <Link to={`/inventories/${id}/edit`}>
                     <img className='item__icons-single' src={editIcon} alt='edit' />
                 </Link>

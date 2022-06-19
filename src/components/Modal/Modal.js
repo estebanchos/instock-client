@@ -2,17 +2,20 @@ import './Modal.scss';
 import Button from '../Button/Button';
 import closeIcon from '../../assets/icons/close.svg';
 
-function Modal( { show, warehouseName, selectedWarehouseId, hideModal, deleteWarehouse }) {
-    const showHideClass = show ? "modal display-block" : "modal display-none" 
+// Modal can be used for both inventory and warehouse pages
 
+function Modal( { show, hideModal, infoObj, deleteHandler }) {
+    const showHideClass = show ? "modal display-block" : "modal display-none" 
+    const { name, place, deleteId } = infoObj
+   
     return (  
         <div className={showHideClass}>
             <div className='modal__main'>
                 <div className='modal__main-content'>
                     <div className='modal__main-upper'>
-                        <h2 className='modal__main-title'>Delete {warehouseName} warehouse?</h2>
+                        <h2 className='modal__main-title'>Delete {name}?</h2>
                         <p className='modal__main-text'>
-                            Please confirm that you'd like to delete the {warehouseName} from the list of warehouses.
+                            Please confirm that you'd like to delete the {name} from the {place}.
                             You won't be able to undo this action.    
                         </p>
                     </div>
@@ -21,7 +24,11 @@ function Modal( { show, warehouseName, selectedWarehouseId, hideModal, deleteWar
                             <Button prompt='Cancel' handler={hideModal} />
                         </div>
                         <div className='modal__buttons-delete'>
-                            <Button color='red' prompt='Delete' handler={() => deleteWarehouse(selectedWarehouseId)} /> 
+                            <Button 
+                            color='red' 
+                            prompt='Delete' 
+                            handler={() => deleteHandler(deleteId)}
+                             /> 
                         </div>
                     </div>
                     <div className='modal__close'>

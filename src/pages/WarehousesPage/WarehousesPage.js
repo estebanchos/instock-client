@@ -50,14 +50,19 @@ class Warehouses extends Component {
     }
 
     render() { 
+        const warehouseObj = {
+            name: `${this.state.selectedWarehouseName} warehouse` || '',
+            place: 'list of warehouses',
+            deleteId: this.state.selectedWarehouseId
+            
+        }
         return (
             <main className='main'>
                  <Modal 
                     show={this.state.show} 
-                    warehouseName={this.state.selectedWarehouseName} 
                     hideModal={this.hideModal} 
-                    deleteWarehouse={this.deleteWarehouse}
-                    selectedWarehouseId={this.state.selectedWarehouseId}
+                    infoObj={warehouseObj}
+                    deleteHandler={this.deleteWarehouse}
                     />
                 <div className='main__background'></div>
                 <section className='main__inner'>
@@ -70,6 +75,7 @@ class Warehouses extends Component {
                     warehouses={this.state.warehouses} 
                     deleteClick={this.clickTrash} 
                     show={this.state.show}
+                    isWarehouse={true}
                     />
                 </section>
             </main>
