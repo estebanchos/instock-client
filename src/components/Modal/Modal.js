@@ -3,11 +3,11 @@ import Button from '../Button/Button';
 import closeIcon from '../../assets/icons/close.svg';
 
 // Modal can be used for both inventory and warehouse pages
-//Name takes value of item or warehouse to be deleted
-//Place is the list thet 'name' isb eing deleted from 
-function Modal( { show, name, place, selectedWarehouseId, hideModal, deleteWarehouse }) {
-    const showHideClass = show ? "modal display-block" : "modal display-none" 
 
+function Modal( { show, hideModal, infoObj, deleteHandler }) {
+    const showHideClass = show ? "modal display-block" : "modal display-none" 
+    const { name, place, deleteId } = infoObj
+   
     return (  
         <div className={showHideClass}>
             <div className='modal__main'>
@@ -24,7 +24,11 @@ function Modal( { show, name, place, selectedWarehouseId, hideModal, deleteWareh
                             <Button prompt='Cancel' handler={hideModal} />
                         </div>
                         <div className='modal__buttons-delete'>
-                            <Button color='red' prompt='Delete' handler={() => deleteWarehouse(selectedWarehouseId)} /> 
+                            <Button 
+                            color='red' 
+                            prompt='Delete' 
+                            handler={() => deleteHandler(deleteId)}
+                             /> 
                         </div>
                     </div>
                     <div className='modal__close'>

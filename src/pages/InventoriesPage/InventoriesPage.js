@@ -13,8 +13,8 @@ class Inventories extends React.Component {
     state = {
         inventories: [],
         show: false,
-        itemName: '',
-        itemId: ''
+        selectedItemId: '',
+        selectedItemName: '',
     }
 
 // initial mount fills state with inventory info from API
@@ -36,7 +36,7 @@ class Inventories extends React.Component {
     }
 
     deleteItem = (itemId) => {
-        axios.delete(`http://localhost:8080/warehouses/${itemId}`)
+        axios.delete(`http://localhost:8080/inventories/${itemId}`)
         .then(res => {
             this.setState({
                 inventories: res.data
@@ -50,29 +50,35 @@ class Inventories extends React.Component {
     clickTrash = (e) => {
         this.setState({
             show: true,
-            selectedWarehouseName: e.target.name,
-            selectedWarehouseId: e.target.id
+            selectedItemName: e.target.name,
+            selectedItemId: e.target.id
         })
     }
 
     render(){
+        const itemObj = {
+            name:`${this.state.selectedItemName} inventory item`,
+            place: 'inventory list',
+            deleteId: this.state.selectedItemId
+        }
         return (
             <main className='inventory'>
                  <Modal 
                     show={this.state.show} 
-                    name={`${this.state.itemName} inventory item`} 
-                    place='inventory list'
                     hideModal={this.hideModal} 
-                    deleteWarehouse={this.deleteWarehouse}
-                    itemId={this.state.itemId}
+                    infoObj={itemObj}
+                    deleteHandler={this.deleteItem}
                     />
                 <div className='inventory__background'></div>
                 <section className='inventory__foreground'>
-                <ListHeader listName='Inventory' buttonText='+ Add New Item' path='/inventories/inventory/new' />
-                <InventoryList 
-                inventories={this.state.inventories}
-                deleteClick={this.clickTrash} 
-                show={this.state.show}/>
+                    <ListHeader 
+                        listName='Inventory' 
+                        buttonText='+ Add New Item' 
+                        path='/inventories/inventory/new' />
+                    <InventoryList 
+                        inventories={this.state.inventories}
+                        deleteClick={this.clickTrash} 
+                        />
                 </section>
             </main>
         )
