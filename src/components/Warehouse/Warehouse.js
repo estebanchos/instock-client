@@ -11,7 +11,7 @@ function Warehouse({ name, address, city, country, contactName, tel, email, id, 
             <div className='warehouse__name'>
                 <h4 className='warehouse__title'>WAREHOUSE</h4>
                 <NavLink to={`/warehouses/${id}`} className='warehouse__link'>
-                    <p className='warehouse__input'>
+                    <p className='warehouse__input warehouse__input--bold'>
                         {name}
                         <img src={chevRight} alt='chev-right'/>
                     </p>

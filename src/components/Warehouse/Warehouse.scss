@@ -111,7 +111,11 @@
         margin: 0;
 
         @include tablet {
-            font-size: 0.6rem;
+            font-size: $m-p2-text-size;
+        }
+
+        &--bold {
+            font-weight: 600;
         }
 
     }
