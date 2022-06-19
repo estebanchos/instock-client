@@ -5,7 +5,6 @@ import './EditInventoryPage.scss';
 
 function EditInventoryPage(props) {
     const itemId = props.match.params.inventoryId
-
     return ( 
         <>
             <main className="edit-inv">

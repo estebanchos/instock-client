@@ -4,7 +4,6 @@ import { Component } from 'react';
 import { warehousesUrl } from '../../utils/api';
 import InvalidMessage from '../InvalidMessage/InvalidMessage';
 import axios from 'axios';
-import ButtonNav from '../ButtonNav/ButtonNav';
 
 class WarehouseForm extends Component {
     state = {
@@ -151,6 +150,11 @@ class WarehouseForm extends Component {
         return isValid
     }
 
+    // method will return to the previous page
+    returnToPrevPage = () => {
+        this.props.history.goBack()
+    }
+
     handleSubmit = (e) => {
         e.preventDefault()
         if (this.isFormValid()) {
@@ -174,11 +178,11 @@ class WarehouseForm extends Component {
             } else {
                 const newWarehouseUrl = `${warehousesUrl}new`
                 axios.post(newWarehouseUrl, newWarehouse)
-                .then(_res => {
-                    // pending functionality to return to warehouses page
-                    // setTimeout(() => this.returnToWarehouses(), 1000);
-                })
-                .catch(err => console.error("Unable to create new warehouse: ", err))
+                    .then(_res => {
+                        // pending functionality to return to warehouses page
+                        // setTimeout(() => this.returnToWarehouses(), 1000);
+                    })
+                    .catch(err => console.error("Unable to create new warehouse: ", err))
             }
         }
     }
@@ -292,7 +296,7 @@ class WarehouseForm extends Component {
                     </section>
                 </section>
                 <section className='warehouse-item__form-actions'>
-                    <ButtonNav prompt='Cancel' path='/' />
+                    <p className='cancel-button' onClick={this.returnToPrevPage}>Cancel</p>
                     <Button color='blue' prompt={prompt} />
                 </section>
             </form>

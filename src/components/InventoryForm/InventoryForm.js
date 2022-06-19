@@ -5,7 +5,6 @@ import { categoryList, warehouseList } from '../../utils/dropdownLists';
 import { inventoriesUrl } from '../../utils/api';
 import InvalidMessage from '../InvalidMessage/InvalidMessage';
 import axios from 'axios';
-import ButtonNav from '../ButtonNav/ButtonNav';
 
 class InventoryForm extends Component {
     state = {
@@ -27,7 +26,6 @@ class InventoryForm extends Component {
 
     componentDidMount() {
         const itemId = this.props.itemId
-        console.log(this.props)
         if (itemId) {
             axios.get(inventoriesUrl + itemId)
                 .then((res) => {
@@ -41,7 +39,7 @@ class InventoryForm extends Component {
                         quantity: quantity,
                         warehouseId: warehouseID,
                     })
-                    if(status === "Out of Stock") {
+                    if (status === "Out of Stock") {
                         this.setState({
                             showQty: false
                         })
@@ -247,7 +245,7 @@ class InventoryForm extends Component {
                                         onChange={this.handleChange}
                                         onClick={this.quantityShow}
                                         checked={this.state.status === 'In Stock'}
-                                        // set a function then ternary
+                                    // set a function then ternary
                                     />
                                     <label htmlFor='in-stock' >In stock</label>
                                 </div>
@@ -299,7 +297,7 @@ class InventoryForm extends Component {
                 </section>
                 {/* BUTTONS */}
                 <section className='inventory-item__form-actions'>
-                    <Button prompt='Cancel' handler={this.returnToPrevPage} />
+                <p className='cancel-button' onClick={this.returnToPrevPage}>Cancel</p>
                     <Button color='blue' prompt={prompt} />
                 </section>
             </form>

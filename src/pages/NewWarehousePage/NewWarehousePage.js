@@ -3,12 +3,12 @@ import WarehouseForm from '../../components/WarehouseForm/WarehouseForm';
 import './NewWarehousePage.scss';
 
 
-function NewWarehousePage() {
+function NewWarehousePage(props) {
     return ( 
         <>
             <main>
                 <PageHeaderSimple title='Add New Warehouse' path="/"/>
-                <WarehouseForm prompt="+ Add Warehouse" />
+                <WarehouseForm prompt="+ Add Warehouse" {...props} />
             </main>
         </>
      );

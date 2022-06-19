@@ -11,12 +11,8 @@ label {
 
 .inventory-item {
     margin: 0;
-    // border-bottom: 1px solid $cloud;
 
     &__form-inputs {
-        // border-top: 1px solid $cloud;
-        // margin-top: 0rem;
-
         @include tablet {
             display: flex;
             padding: 0 2rem;
@@ -174,4 +170,8 @@ label {
     @include tablet{
     margin-left: 1rem;
     }
+}
+
+.cancel-button {
+    @include cancel-button-style
 }

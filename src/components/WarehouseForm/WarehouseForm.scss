@@ -87,3 +87,7 @@ label {
         }
     }
 }
+
+.cancel-button {
+    @include cancel-button-style
+}
