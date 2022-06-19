@@ -23,6 +23,7 @@
         @include tablet {
             align-items: center;
             justify-content: space-between;
+            padding-left: 1.5rem;
         }
        
     }
@@ -49,6 +50,7 @@
         color: $slate;
         text-transform: uppercase;
         margin-top: 1rem;
+        padding-bottom: .25rem;
         width: 8rem;
         @include tablet{
             display: none;
@@ -118,12 +120,11 @@
             flex-direction: row;
             align-items: center;
             justify-content: space-between;
-            width: 52%;
+            width: 54%;
         }
         @include desktop{
             justify-content: space-between;
             width: 60%;
-            // padding-right: 3rem;
             
         }
     }
@@ -131,7 +132,7 @@
     &__icons{
         display: flex;
         justify-content: space-between;
-        padding: 1rem;
+        padding: 1rem 2rem 1rem 0;
         width: 100%;
         @include tablet{
             align-items: center;
@@ -143,6 +144,7 @@
         &-single{
             cursor: pointer;
             width: 1.3rem;
+        
             
             @include desktop{
                 margin: .5rem;

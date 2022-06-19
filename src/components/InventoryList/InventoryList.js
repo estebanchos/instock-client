@@ -12,7 +12,7 @@ function InventoryList ({ inventories, deleteClick }){
                     <img className='inventory-list__filters-icon'src={sort} alt='arrows'/>
                 </p>
                 <p className='inventory-list__filters-title'>
-                    Cateogry
+                    Category
                     <img className='inventory-list__filters-icon' src={sort} alt='arrows'/>
                 </p>
                 </div>

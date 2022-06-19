@@ -11,9 +11,9 @@
     align-items: center;
     width: 100%;
     margin: 0;
-    padding-left: 1.5rem;
+    // padding-left: 1.5rem;
     @include desktop {
-        padding-left: 2rem;
+        // padding-left: 2rem;
     }
 
     &__flex-left{
@@ -91,8 +91,10 @@
     &__item{
         display: flex;
         align-items: center;
+        justify-content: center;
         width: 100%;
         border-top: 1px solid $cloud;
+        padding-left: 1.5rem;
         &:nth-child(1){
             border-top: none;
         }
@@ -100,6 +102,11 @@
             padding: 1rem 0;
             justify-content: space-between;
         }
+        @include desktop {
+            padding: 1rem;
+            justify-content: space-between;
+        }
+    
         
         
     }
