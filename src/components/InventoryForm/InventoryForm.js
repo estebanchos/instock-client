@@ -5,10 +5,10 @@ import { categoryList, warehouseList } from '../../utils/dropdownLists';
 import { inventoriesUrl } from '../../utils/api';
 import InvalidMessage from '../InvalidMessage/InvalidMessage';
 import axios from 'axios';
-import ButtonNav from '../ButtonNav/ButtonNav';
 
 class InventoryForm extends Component {
     state = {
+        itemId: '',
         name: '',
         description: '',
         category: '',
@@ -22,6 +22,31 @@ class InventoryForm extends Component {
         isValidQuantity: true,
         isValidWarehouseId: true,
         showQty: true
+    }
+
+    componentDidMount() {
+        const itemId = this.props.itemId
+        if (itemId) {
+            axios.get(inventoriesUrl + itemId)
+                .then((res) => {
+                    const { id, itemName, description, category, status, quantity, warehouseID } = res.data
+                    this.setState({
+                        itemId: id,
+                        name: itemName,
+                        description: description,
+                        category: category,
+                        status: status,
+                        quantity: quantity,
+                        warehouseId: warehouseID,
+                    })
+                    if (status === "Out of Stock") {
+                        this.setState({
+                            showQty: false
+                        })
+                    }
+                })
+                .catch((error) => console.error(error))
+        }
     }
 
     handleChange = (e) => {
@@ -104,7 +129,6 @@ class InventoryForm extends Component {
     }
 
     handleSubmit = (e) => {
-        const newItemUrl = `${inventoriesUrl}new`
         e.preventDefault()
         if (this.isFormValid()) {
             let newItem = {
@@ -115,14 +139,25 @@ class InventoryForm extends Component {
                 quantity: this.state.quantity,
                 warehouseId: this.state.warehouseId
             }
-            axios.post(newItemUrl, newItem)
-                .then(_res => {
-                    setTimeout(() => this.returnToInventory(), 1000);
-                })
-                .catch(err => {
-                    console.error("Unable to post: ", err)
-                })
+            // if itemId exists we update the existing item, otherwise we send a post to create a new one
+            if (this.state.itemId.length > 3) {
+                //put
+                const editItemUrl = `${inventoriesUrl}${this.state.itemId}/edit`
+                axios.put(editItemUrl, newItem)
+                    .then(_res => setTimeout(() => this.returnToPrevPage(), 1000))
+                    .catch(err => console.error("Unable to update: ", err))
+            } else {
+                const newItemUrl = `${inventoriesUrl}new`
+                axios.post(newItemUrl, newItem)
+                    .then(_res => setTimeout(() => this.returnToPrevPage(), 1000))
+                    .catch(err => console.error("Unable to create: ", err))
+            }
         }
+    }
+
+    // method will return to the previous page
+    returnToPrevPage = () => {
+        this.props.history.goBack()
     }
 
     // click handler for IN STOCK radio input
@@ -140,9 +175,8 @@ class InventoryForm extends Component {
         e.target.setAttribute("checked", true)
     }
 
-
     render() {
-        const {prompt} = this.props
+        const { prompt } = this.props
         return (
             <form className='inventory-item' onSubmit={this.handleSubmit}>
                 <section className='inventory-item__form-inputs'>
@@ -160,6 +194,7 @@ class InventoryForm extends Component {
                             />
                             <InvalidMessage isValid={this.state.isValidName} />
                         </div>
+                        {/*  DESCRIPTION */}
                         <div className='inventory-item__input-container'>
                             <label className='inventory-item__label' htmlFor=''>Description</label>
                             <textarea
@@ -173,6 +208,7 @@ class InventoryForm extends Component {
                             />
                             <InvalidMessage isValid={this.state.isValidDescription} />
                         </div>
+                        {/*  CATEGORY */}
                         <div className='inventory-item__input-container'>
                             <label className='inventory-item__label' htmlFor=''>Category</label>
                             <select
@@ -183,9 +219,9 @@ class InventoryForm extends Component {
                                 onChange={this.handleChange}
                             >
                                 <option value='' disabled hidden>Please select</option>
-                                {categoryList.map((category, index) => {
+                                {categoryList.map((category) => {
                                     return (
-                                        <option key={index} value={category}>{category}</option>
+                                        <option key={category.id} value={category.name}>{category.name}</option>
                                     )
                                 })}
                             </select>
@@ -193,7 +229,7 @@ class InventoryForm extends Component {
                         </div>
                     </section>
 
-{/* ITEM AVAILABILITY - STATUS, QTY, WAREHOUSE */}
+                    {/* ITEM AVAILABILITY - STATUS, QTY, WAREHOUSE */}
                     <section className='inventory-item__availability'>
                         <h2 className='inventory-item__subheader'>Item Availability</h2>
                         {/* STATUS */}
@@ -201,19 +237,25 @@ class InventoryForm extends Component {
                             <label className='inventory-item__label' htmlFor=''>Status</label>
                             <div className='inventory-item__radio-container'>
                                 <div className='input-type__option'>
-                                    <input type='radio' 
-                                    name='status' 
-                                    id='in-stock' 
-                                    value='In stock' 
-                                    onChange={this.handleChange}
-                                    onClick={this.quantityShow}
+                                    <input type='radio'
+                                        name='status'
+                                        id='in-stock'
+                                        value='In Stock'
+                                        onChange={this.handleChange}
+                                        onClick={this.quantityShow}
+                                        checked={this.state.status === 'In Stock'}
+                                    // set a function then ternary
                                     />
                                     <label htmlFor='in-stock' >In stock</label>
                                 </div>
                                 <div className='input-type__option'>
-                                    <input type='radio' name='status' id='out-of-stock' value='Out of stock' 
-                                    onChange={this.handleChange} 
-                                    onClick={this.quantityHide}
+                                    <input type='radio'
+                                        name='status'
+                                        id='out-of-stock'
+                                        value='Out of Stock'
+                                        onChange={this.handleChange}
+                                        onClick={this.quantityHide}
+                                        checked={this.state.status === 'Out of Stock'}
                                     />
                                     <label htmlFor='out-of-stock' >Out of stock</label>
                                 </div>
@@ -254,8 +296,8 @@ class InventoryForm extends Component {
                 </section>
                 {/* BUTTONS */}
                 <section className='inventory-item__form-actions'>
-                    <ButtonNav prompt='Cancel' path='/inventories' />
-                    <Button color='blue' prompt={prompt}/>
+                <p className='cancel-button' onClick={this.returnToPrevPage}>Cancel</p>
+                    <Button color='blue' prompt={prompt} />
                 </section>
             </form>
         );

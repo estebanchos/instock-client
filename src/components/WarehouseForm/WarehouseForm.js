@@ -4,10 +4,10 @@ import { Component } from 'react';
 import { warehousesUrl } from '../../utils/api';
 import InvalidMessage from '../InvalidMessage/InvalidMessage';
 import axios from 'axios';
-import ButtonNav from '../ButtonNav/ButtonNav';
 
 class WarehouseForm extends Component {
     state = {
+        warehouseId: '',
         name: '',
         address: '',
         city: '',
@@ -24,6 +24,29 @@ class WarehouseForm extends Component {
         isValidPosition: true,
         isValidPhone: true,
         isValidEmail: true
+    }
+
+    componentDidMount() {
+        const warehouseId = this.props.warehouseId
+        if (warehouseId) {
+            axios.get(warehousesUrl)
+                .then((res) => {
+                    const found = res.data.find(warehouse => warehouse.id === warehouseId)
+                    const { id, name, address, city, country, contact: { name: contactName, position, phone, email } } = found
+                    this.setState({
+                        warehouseId: id,
+                        name: name,
+                        address: address,
+                        city: city,
+                        country: country,
+                        contactName: contactName,
+                        position: position,
+                        phone: phone,
+                        email: email,
+                    })
+                })
+                .catch((error) => console.error(error))
+        }
     }
 
     handleChange = (e) => {
@@ -127,8 +150,12 @@ class WarehouseForm extends Component {
         return isValid
     }
 
+    // method will return to the previous page
+    returnToPrevPage = () => {
+        this.props.history.goBack()
+    }
+
     handleSubmit = (e) => {
-        const newWarehouseUrl = `${warehousesUrl}new`
         e.preventDefault()
         if (this.isFormValid()) {
             let newWarehouse = {
@@ -141,18 +168,24 @@ class WarehouseForm extends Component {
                 phone: this.state.phone,
                 email: this.state.email
             }
-            axios.post(newWarehouseUrl, newWarehouse)
-                .then(_res => {
-                    // pending functionality to return to warehouses page
-                    // setTimeout(() => this.returnToWarehouses(), 1000);
-                })
-                .catch(err => {
-                    console.error("Unable to post: ", err)
-                })
+            // if warehouseId exists we update the existing warehouse, otherwise we send a post to create a new one
+            if (this.state.warehouseId.length > 3) {
+                //put
+                const editWarehouseUrl = `${warehousesUrl}${this.state.warehouseId}/edit`
+                axios.put(editWarehouseUrl, newWarehouse)
+                    .then(_res => setTimeout(() => this.returnToPrevPage(), 1000))
+                    .catch(err => console.error("Unable to update: ", err))
+            } else {
+                const newWarehouseUrl = `${warehousesUrl}new`
+                axios.post(newWarehouseUrl, newWarehouse)
+                    .then(_res => setTimeout(() => this.returnToPrevPage(), 1000))
+                    .catch(err => console.error("Unable to create new warehouse: ", err))
+            }
         }
     }
 
     render() {
+        const { prompt } = this.props
         return (
             <form className='warehouse-item' onSubmit={this.handleSubmit}>
                 <section className='warehouse-item__form-inputs'>
@@ -239,7 +272,7 @@ class WarehouseForm extends Component {
                                 className={this.state.isValidPhone ? 'input-type__input' : 'input-type__input--error'}
                                 name='phone'
                                 id='phone'
-                                placeholder='Phone Number'
+                                placeholder='+1 (647) 123-4567'
                                 value={this.state.phone}
                                 onChange={this.handleChange}
                             />
@@ -251,7 +284,7 @@ class WarehouseForm extends Component {
                                 className={this.state.isValidEmail ? 'input-type__input' : 'input-type__input--error'}
                                 name='email'
                                 id='email'
-                                placeholder='Email'
+                                placeholder='email@address.com'
                                 value={this.state.email}
                                 onChange={this.handleChange}
                             />
@@ -260,8 +293,8 @@ class WarehouseForm extends Component {
                     </section>
                 </section>
                 <section className='warehouse-item__form-actions'>
-                    <ButtonNav prompt='Cancel' path='/' />
-                    <Button color='blue' prompt='+ Add Warehouse' />
+                    <p className='cancel-button' onClick={this.returnToPrevPage}>Cancel</p>
+                    <Button color='blue' prompt={prompt} />
                 </section>
             </form>
         );

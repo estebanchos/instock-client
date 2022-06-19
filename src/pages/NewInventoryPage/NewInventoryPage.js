@@ -3,12 +3,12 @@ import PageHeaderSimple from '../../components/PageHeaderSimple/PageHeaderSimple
 import './NewInventoryPage.scss';
 
 
-function NewInventoryPage() {
+function NewInventoryPage(props) {
     return ( 
         <>
             <main>
                 <PageHeaderSimple title='Add New Inventory Item' path="/inventories"/>
-                <InventoryForm prompt="+ Add Item"/>
+                <InventoryForm prompt="+ Add Item" {...props}/>
             </main>
         </>
      );
