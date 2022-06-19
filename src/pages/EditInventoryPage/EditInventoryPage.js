@@ -12,7 +12,7 @@ function EditInventoryPage(props) {
                 <div className='edit-inv__background'></div>
                     <div className='edit-inv__foreground'>
                         <PageHeaderSimple title='Edit Inventory Item' path={`/inventories/${itemId}`}/>
-                        <InventoryForm prompt="Save" />
+                        <InventoryForm prompt="Save" itemId={itemId} />
                     </div>
             </main>
         </>
