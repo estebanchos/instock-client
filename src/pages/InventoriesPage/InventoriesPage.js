@@ -43,8 +43,7 @@ class Inventories extends React.Component {
             })
             this.hideModal()
         })
-        .catch(err => console.error(err))
-            
+        .catch(err => console.error(err))     
     }
 
     clickTrash = (e) => {

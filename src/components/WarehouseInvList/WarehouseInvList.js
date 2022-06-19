@@ -2,7 +2,7 @@ import './WarehouseInvList.scss';
 import sort from '../../assets/icons/sort.svg';
 import InvItem from '../InvItem/InvItem'
 
-function WarehouseInvList({ warehouse }) {
+function WarehouseInvList({ warehouse, clickTrash }) {
     return ( 
         <section className='warehouse-inv'>
             <div className='warehouse-inv__titles'>
@@ -33,6 +33,7 @@ function WarehouseInvList({ warehouse }) {
                         key={item.id}
                         >
                         <InvItem
+                            clickTrash={clickTrash}
                             category={item.category}
                             id={item.id}
                             name={item.itemName}

@@ -5,12 +5,13 @@ import deleteIcon from '../../assets/icons/delete-outline.svg';
 import editIcon from '../../assets/icons/edit-blue.svg';
 import InOutStock from '../InOutStock/InOutStock';
 
-function Warehouse({ name, id, quantity, status, category }) {
+function Warehouse({ name, id, quantity, status, category, clickTrash }) {
+
     return (  
         <div className='inv-item'>
             <div className='inv-item__name'>
                 <h4 className='inv-item__title'>INVENTORY ITEM</h4>
-                <NavLink to={`/warehouses/${id}`} className='warehouse__link'>
+                <NavLink to={`/inventories/${id}`} className='warehouse__link'>
                     <p className='inv-item__input'>
                         {name}
                         <img src={chevRight} alt='chev-right'/>
@@ -30,8 +31,10 @@ function Warehouse({ name, id, quantity, status, category }) {
                 <p className='inv-item__input'>{quantity}</p>
             </div>
             <div className='inv-item__icons'>
-                <img className='inv-item__icons--icon'src={deleteIcon} alt='delete'/>
-                <img className='inv-item__icons--icon'src={editIcon} alt='edit' />
+                <img className='inv-item__icons--icon'src={deleteIcon} alt='delete' onClick={clickTrash} name={name} id={id}/>
+                <NavLink to={`/inventories/${id}/edit`}>
+                    <img className='inv-item__icons--icon'src={editIcon} alt='edit' />
+                </NavLink>
             </div>
         </div>
     );
