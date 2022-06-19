@@ -1,5 +1,26 @@
 
-export const categoryList = ['Electronics', 'Gear', 'Apparel', 'Accessories', 'Health']
+export const categoryList = [
+    {
+        id: '001',
+        name: 'Electronics'
+    },
+    {
+        id: '002',
+        name: 'Gear'
+    },
+    {
+        id: '003',
+        name: 'Apparel'
+    },
+    {
+        id: '004',
+        name: 'Accessories'
+    },
+    {
+        id: '005',
+        name: 'Health'
+    }
+]
 
 export const warehouseList = [
     {

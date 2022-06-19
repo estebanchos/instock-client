@@ -61,6 +61,19 @@
   }
 }
 
+@mixin cancel-button-style {
+  background-color: $white;
+  color: $slate;
+  @include button-nav-style;
+  border: 1px solid $cloud;
+  margin: 0;
+
+  &:hover {
+    border: 1px solid $instock-indigo;
+    color: $instock-indigo;
+  }
+}
+
 @mixin input-style {
   border-radius: 20px;
   padding: 0.5rem 1rem;
