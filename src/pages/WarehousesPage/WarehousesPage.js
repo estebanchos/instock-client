@@ -54,7 +54,8 @@ class Warehouses extends Component {
             <main className='main'>
                  <Modal 
                     show={this.state.show} 
-                    warehouseName={this.state.selectedWarehouseName} 
+                    name={`${this.state.selectedWarehouseName} warehouse`} 
+                    place='list of warehouses'
                     hideModal={this.hideModal} 
                     deleteWarehouse={this.deleteWarehouse}
                     selectedWarehouseId={this.state.selectedWarehouseId}

@@ -2,7 +2,10 @@ import './Modal.scss';
 import Button from '../Button/Button';
 import closeIcon from '../../assets/icons/close.svg';
 
-function Modal( { show, warehouseName, selectedWarehouseId, hideModal, deleteWarehouse }) {
+// Modal can be used for both inventory and warehouse pages
+//Name takes value of item or warehouse to be deleted
+//Place is the list thet 'name' isb eing deleted from 
+function Modal( { show, name, place, selectedWarehouseId, hideModal, deleteWarehouse }) {
     const showHideClass = show ? "modal display-block" : "modal display-none" 
 
     return (  
@@ -10,9 +13,9 @@ function Modal( { show, warehouseName, selectedWarehouseId, hideModal, deleteWar
             <div className='modal__main'>
                 <div className='modal__main-content'>
                     <div className='modal__main-upper'>
-                        <h2 className='modal__main-title'>Delete {warehouseName} warehouse?</h2>
+                        <h2 className='modal__main-title'>Delete {name}?</h2>
                         <p className='modal__main-text'>
-                            Please confirm that you'd like to delete the {warehouseName} from the list of warehouses.
+                            Please confirm that you'd like to delete the {name} from the {place}.
                             You won't be able to undo this action.    
                         </p>
                     </div>

@@ -2,7 +2,7 @@ import Warehouse from '../Warehouse/Warehouse';
 import './WarehouseList.scss';
 import sort from '../../assets/icons/sort.svg';
 
-function WarehouseList({ warehouses, deleteClick, show }) {
+function WarehouseList({ warehouses, deleteClick }) {
     return ( 
         <section className='warehouse-list'>
             <div className='warehouse-list__titles'>
@@ -33,7 +33,6 @@ function WarehouseList({ warehouses, deleteClick, show }) {
                         key={warehouse.id}
                         >
                         <Warehouse
-                            show={show}
                             deleteClick={deleteClick}
                             id={warehouse.id}
                             name={warehouse.name}

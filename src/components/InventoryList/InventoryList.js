@@ -2,7 +2,7 @@ import './InventoryList.scss';
 import InventoryItem from '../InventoryItem/InventoryItem';
 import sort from '../../assets/icons/sort.svg';
 
-function InventoryList ({ inventories }){
+function InventoryList ({ inventories, deleteClick }){
     return (
         <section className='inventory-section'>
             <div className='inventory-list__filters'>
@@ -38,6 +38,7 @@ function InventoryList ({ inventories }){
                         key={item.id}
                         >
                         <InventoryItem 
+                            deleteClick={deleteClick}
                             itemName={item.itemName}
                             category={item.category}
                             status={item.status}

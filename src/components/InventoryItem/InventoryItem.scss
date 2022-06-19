@@ -138,6 +138,8 @@
         }
 
         &-single{
+            cursor: pointer;
+            
             @include desktop{
                 margin: .5rem;
             }
