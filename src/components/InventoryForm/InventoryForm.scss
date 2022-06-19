@@ -25,7 +25,7 @@ label {
         padding: 1rem 0;
 
         @include tablet {
-            flex-direction: row-reverse;
+            justify-content: flex-end;
             padding-right: 2rem;
         }
        
@@ -97,6 +97,7 @@ label {
         }
     }
 
+
 }
 
 
@@ -138,6 +139,11 @@ label {
         padding: 0.5rem 1rem;
         border: 1px solid $cloud;
         color: $slate;
+        appearance: none;
+        background-image: url(../../assets/icons/arrow-dropdown.svg);
+        background-repeat: no-repeat;
+        background-position: right .75rem center;
+
         
 
         &--error {
