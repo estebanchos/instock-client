@@ -12,7 +12,7 @@ function EditWarehousePage(props) {
                 <div className='edit-warehouse__background'></div>
                     <div className='edit-warehouse__foreground'>
                         <PageHeaderSimple title='Edit Warehouse Item' path={`/warehouses/${warehouseId}`}/>
-                        <WarehouseForm prompt="Save" />
+                        <WarehouseForm prompt="Save" warehouseId={warehouseId} />
                     </div>
             </main>
         </>

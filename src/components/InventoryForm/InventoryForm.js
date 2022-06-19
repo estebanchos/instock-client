@@ -31,7 +31,6 @@ class InventoryForm extends Component {
             axios.get(inventoriesUrl + itemId)
                 .then((res) => {
                     const { id, itemName, description, category, status, quantity, warehouseID } = res.data
-                    // console.log(res.data)
                     this.setState({
                         itemId: id,
                         name: itemName,
@@ -136,7 +135,7 @@ class InventoryForm extends Component {
                 quantity: this.state.quantity,
                 warehouseId: this.state.warehouseId
             }
-            // if state has an id we send a put to update the existing item, otherwise we send a post to create a new one
+            // if itemId exists we update the existing item, otherwise we send a post to create a new one
             if (this.state.itemId.length > 3) {
                 //put
                 const editItemUrl = `${inventoriesUrl}${this.state.itemId}/edit`
@@ -146,7 +145,8 @@ class InventoryForm extends Component {
             } else {
                 const newItemUrl = `${inventoriesUrl}new`
                 axios.post(newItemUrl, newItem)
-                    .then(_res => setTimeout(() => this.returnToInventory(), 1000))
+                    .then(_res => console.log("added"))
+                    // setTimeout(() => this.returnToInventory(), 1000)
                     .catch(err => console.error("Unable to create: ", err))
             }
         }

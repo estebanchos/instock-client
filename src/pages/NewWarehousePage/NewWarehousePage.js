@@ -8,7 +8,7 @@ function NewWarehousePage() {
         <>
             <main>
                 <PageHeaderSimple title='Add New Warehouse' path="/"/>
-                <WarehouseForm />
+                <WarehouseForm prompt="+ Add Warehouse" />
             </main>
         </>
      );
