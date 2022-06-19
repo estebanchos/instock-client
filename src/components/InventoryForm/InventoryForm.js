@@ -35,7 +35,7 @@ class InventoryForm extends Component {
                         itemId: id,
                         name: itemName,
                         description: description,
-                        catefory: category,
+                        category: category,
                         status: status,
                         quantity: quantity,
                         warehouseId: warehouseID,
@@ -186,6 +186,7 @@ class InventoryForm extends Component {
                             />
                             <InvalidMessage isValid={this.state.isValidName} />
                         </div>
+                        {/*  DESCRIPTION */}
                         <div className='inventory-item__input-container'>
                             <label className='inventory-item__label' htmlFor=''>Description</label>
                             <textarea
@@ -199,6 +200,7 @@ class InventoryForm extends Component {
                             />
                             <InvalidMessage isValid={this.state.isValidDescription} />
                         </div>
+                        {/*  CATEGORY */}
                         <div className='inventory-item__input-container'>
                             <label className='inventory-item__label' htmlFor=''>Category</label>
                             <select
