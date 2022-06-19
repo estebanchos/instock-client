@@ -27,6 +27,7 @@ class InventoryForm extends Component {
 
     componentDidMount() {
         const itemId = this.props.itemId
+        console.log(this.props)
         if (itemId) {
             axios.get(inventoriesUrl + itemId)
                 .then((res) => {
@@ -40,6 +41,11 @@ class InventoryForm extends Component {
                         quantity: quantity,
                         warehouseId: warehouseID,
                     })
+                    if(status === "Out of Stock") {
+                        this.setState({
+                            showQty: false
+                        })
+                    }
                 })
                 .catch((error) => console.error(error))
         }
@@ -152,6 +158,11 @@ class InventoryForm extends Component {
         }
     }
 
+    // method will return to the previous page
+    returnToPrevPage = () => {
+        this.props.history.goBack()
+    }
+
     // click handler for IN STOCK radio input
     quantityShow = (e) => {
         this.setState({
@@ -235,6 +246,8 @@ class InventoryForm extends Component {
                                         value='In Stock'
                                         onChange={this.handleChange}
                                         onClick={this.quantityShow}
+                                        checked={this.state.status === 'In Stock'}
+                                        // set a function then ternary
                                     />
                                     <label htmlFor='in-stock' >In stock</label>
                                 </div>
@@ -245,6 +258,7 @@ class InventoryForm extends Component {
                                         value='Out of Stock'
                                         onChange={this.handleChange}
                                         onClick={this.quantityHide}
+                                        checked={this.state.status === 'Out of Stock'}
                                     />
                                     <label htmlFor='out-of-stock' >Out of stock</label>
                                 </div>
@@ -285,7 +299,7 @@ class InventoryForm extends Component {
                 </section>
                 {/* BUTTONS */}
                 <section className='inventory-item__form-actions'>
-                    <ButtonNav prompt='Cancel' path='/inventories' />
+                    <Button prompt='Cancel' handler={this.returnToPrevPage} />
                     <Button color='blue' prompt={prompt} />
                 </section>
             </form>
