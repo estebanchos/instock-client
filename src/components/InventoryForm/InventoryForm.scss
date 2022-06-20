@@ -181,3 +181,22 @@ label {
 .cancel-button {
     @include cancel-button-style;
 }
+
+.item__update{
+    font-size: 1.5rem;
+    background-color: #232940;
+    width: 100%;
+    margin-bottom: .25rem;
+    text-align: center;
+    color: $white;
+    border-radius: 20px;
+
+    &--true{
+        display: block;
+        
+    }
+    &--false{
+        display: none;
+
+    }
+}

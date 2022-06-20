@@ -25,7 +25,6 @@ class InventoryDetails extends React.Component {
     }
 
     render() {
-        const currentUrl = this.props.match.url
         if (!this.state.item) return "Can't load page"
         return (
             <main className='details-main'>
