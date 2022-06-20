@@ -21,7 +21,8 @@ class InventoryForm extends Component {
         isValidStatus: true,
         isValidQuantity: true,
         isValidWarehouseId: true,
-        showQty: true
+        showQty: true,
+        messageBanner: false
     }
 
     componentDidMount() {
@@ -144,15 +145,26 @@ class InventoryForm extends Component {
                 //put
                 const editItemUrl = `${inventoriesUrl}${this.state.itemId}/edit`
                 axios.put(editItemUrl, newItem)
-                    .then(_res => setTimeout(() => this.returnToPrevPage(), 1000))
+                    .then(_res => {
+                        this.showMessage()
+                        setTimeout(() => this.returnToPrevPage(), 1000)})
                     .catch(err => console.error("Unable to update: ", err))
             } else {
                 const newItemUrl = `${inventoriesUrl}new`
                 axios.post(newItemUrl, newItem)
-                    .then(_res => setTimeout(() => this.returnToPrevPage(), 1000))
+                    .then(_res => {
+                        this.showMessage()
+                        setTimeout(() => this.returnToPrevPage(), 1000)})
                     .catch(err => console.error("Unable to create: ", err))
             }
         }
+    }
+
+    // show message about item being saved
+    showMessage = () => {
+        this.setState({
+            messageBanner: true
+        })
     }
 
     // method will return to the previous page
@@ -294,6 +306,10 @@ class InventoryForm extends Component {
                         </div>
                     </section>
                 </section>
+                {/* BANNER */}
+                <div className={this.state.messageBanner ? 'item__update--true' : 'item__update--false'}>
+                    <p className='item__update'>Item save successful</p>
+                </div>
                 {/* BUTTONS */}
                 <section className='inventory-item__form-actions'>
                 <p className='cancel-button' onClick={this.returnToPrevPage}>Cancel</p>

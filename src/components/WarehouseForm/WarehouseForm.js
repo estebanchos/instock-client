@@ -23,7 +23,8 @@ class WarehouseForm extends Component {
         isValidContactName: true,
         isValidPosition: true,
         isValidPhone: true,
-        isValidEmail: true
+        isValidEmail: true,
+        messageBanner: false
     }
 
     componentDidMount() {
@@ -173,16 +174,28 @@ class WarehouseForm extends Component {
                 //put
                 const editWarehouseUrl = `${warehousesUrl}${this.state.warehouseId}/edit`
                 axios.put(editWarehouseUrl, newWarehouse)
-                    .then(_res => setTimeout(() => this.returnToPrevPage(), 1000))
+                    .then(_res => {
+                        this.showMessage()
+                        setTimeout(() => this.returnToPrevPage(), 1000)})
                     .catch(err => console.error("Unable to update: ", err))
             } else {
                 const newWarehouseUrl = `${warehousesUrl}new`
                 axios.post(newWarehouseUrl, newWarehouse)
-                    .then(_res => setTimeout(() => this.returnToPrevPage(), 1000))
+                    .then(_res => {
+                        this.showMessage()
+                        setTimeout(() => this.returnToPrevPage(), 1000)})
                     .catch(err => console.error("Unable to create new warehouse: ", err))
             }
         }
     }
+
+ // show message about item being saved
+    showMessage = () => {
+        this.setState({
+            messageBanner: true
+        })
+    }
+
 
     render() {
         const { prompt } = this.props
@@ -292,6 +305,12 @@ class WarehouseForm extends Component {
                         </div>
                     </section>
                 </section>
+
+                {/* BANNER */}
+                <div className={this.state.messageBanner ? 'item__update--true' : 'item__update--false'}>
+                    <p className='item__update'>Item save successful</p>
+                </div>
+
                 <section className='warehouse-item__form-actions'>
                     <p className='cancel-button' onClick={this.returnToPrevPage}>Cancel</p>
                     <Button color='blue' prompt={prompt} />
