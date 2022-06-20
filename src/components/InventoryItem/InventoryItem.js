@@ -7,7 +7,6 @@ import chevRight from '../../assets/icons/chevron-right.svg';
 import InOutStock from '../InOutStock/InOutStock';
 
 function InventoryItem ({ itemName, category, status, quantity, warehouseName, id, deleteClick }){
-
     return (
        
         <div className='item'>
