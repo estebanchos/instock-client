@@ -7,20 +7,20 @@ import PageHeaderB from '../../components/PageHeaderB/PageHeaderB';
 import Modal from '../../components/Modal/Modal';
 
 class WarehouseDetails extends Component {
-    state = { 
+    state = {
         warehouse: [],
         warehouseContact: '',
         show: false,
         modalShow: false,
         selectedItemId: '',
         selectedItemName: '',
-     } 
+    }
 
     componentDidMount() {
         const id = (this.props.match.params.warehouseId)
         axios.get(`http://localhost:8080/warehouses/${id}`)
             .then((res) => {
-                this.setState ({
+                this.setState({
                     ...this.state,
                     warehouse: res.data,
                 })
@@ -30,21 +30,21 @@ class WarehouseDetails extends Component {
 
     componentDidUpdate() {
         if (!this.state.warehouseContact) {
-        const id = (this.props.match.params.warehouseId)
-        axios.get('http://localhost:8080/warehouses')
-            .then((res) => {
-                this.setState ({
-                    ...this.state,
-                    warehouseContact: res.data.find((warehouse) =>{
-                        return warehouse.id === id
-                    }),
-                    show: true
+            const id = (this.props.match.params.warehouseId)
+            axios.get('http://localhost:8080/warehouses')
+                .then((res) => {
+                    this.setState({
+                        ...this.state,
+                        warehouseContact: res.data.find((warehouse) => {
+                            return warehouse.id === id
+                        }),
+                        show: true
+                    })
                 })
-            })
-            .catch((error) => console.error(error))
-        } 
+                .catch((error) => console.error(error))
+        }
     }
-    
+
     hideModal = () => {
         this.setState({
             modalShow: false
@@ -53,13 +53,15 @@ class WarehouseDetails extends Component {
 
     deleteItem = (itemId) => {
         axios.delete(`http://localhost:8080/inventories/${itemId}`)
-        .then(res => {
-            this.setState({
-                warehouse: res.data
+            .then(res => {
+                this.setState({
+                    warehouse: res.data
+                })
+                this.hideModal()
             })
-            this.hideModal()
-        })
-        .catch(err => console.error(err))     
+            .catch(err => console.error(err))
+    }     
+        
     }
 
     clickTrash = (e) => {
@@ -69,28 +71,36 @@ class WarehouseDetails extends Component {
             selectedItemId: e.target.id
         })
     }
-    
-    render() { 
-        const id = (this.props.match.params.warehouseId)
+
+    render() {
+        const id = this.props.match.params.warehouseId
         const itemObj = {
-            name:`${this.state.selectedItemName} inventory item`,
+            name: `${this.state.selectedItemName} inventory item`,
             place: 'inventory list',
             deleteId: this.state.selectedItemId
         }
 
         return (
             <section className='warehouse-inv'>
-                <Modal 
-                    show={this.state.modalShow} 
-                    hideModal={this.hideModal} 
+                <Modal
+                    show={this.state.modalShow}
+                    hideModal={this.hideModal}
                     infoObj={itemObj}
                     deleteHandler={this.deleteItem}
                 />
                 <div className='warehouse-inv__background'></div>
                 <section className='warehouse-inv__inner'>
-                    <PageHeaderB headerTitle={this.state.warehouseContact.name} prevPageUrl='/' editUrl={`/warehouses/${id}/edit`}/>
-                    <WarehouseInvContact warehouseContact={this.state.warehouseContact} show={this.state.show}/>
-                    <WarehouseInvList warehouse={this.state.warehouse} clickTrash={this.clickTrash}/>
+                    <PageHeaderB
+                        headerTitle={this.state.warehouseContact.name}
+                        prevPageUrl='/'
+                        editUrl={`/warehouses/${id}/edit`}
+                    />
+                    <WarehouseInvContact warehouseContact={this.state.warehouseContact} show={this.state.show} />
+                    <WarehouseInvList
+                        warehouse={this.state.warehouse}
+                        clickTrash={this.clickTrash}
+                        {...this.props}
+                    />
                 </section>
             </section>
         );
