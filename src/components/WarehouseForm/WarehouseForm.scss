@@ -22,7 +22,7 @@ label {
     &__form-actions {
         background-color: $light-grey;
         display: flex;
-        padding: 1rem 0;
+        padding: 1rem;
 
         @include tablet {
             justify-content: flex-end;
