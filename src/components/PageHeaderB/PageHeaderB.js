@@ -6,7 +6,6 @@ import { Link } from 'react-router-dom';
 // Takes props so when invoked you can pass it: custom headerTitle for the page, prevPageUrl for the page you want the 'back' arrow to link to, url with id for object you want to edit
 
 function PageHeaderB({ headerTitle, prevPageUrl, editUrl, props }) {
-    console.log(props)
     return (
         <div className='page-head__container'>
             <div className='page-head__left'>

@@ -58,7 +58,6 @@ class WarehouseDetails extends Component {
                     warehouse: res.data
                 })
                 this.hideModal()
-                console.log('deleted')
             })
             .catch(err => console.error(err))
     }
@@ -73,7 +72,6 @@ class WarehouseDetails extends Component {
 
     render() {
         const id = this.props.match.params.warehouseId
-        console.log(this.prevProps)
         const itemObj = {
             name: `${this.state.selectedItemName} inventory item`,
             place: 'inventory list',
@@ -96,7 +94,11 @@ class WarehouseDetails extends Component {
                         editUrl={`/warehouses/${id}/edit`}
                     />
                     <WarehouseInvContact warehouseContact={this.state.warehouseContact} show={this.state.show} />
-                    <WarehouseInvList warehouse={this.state.warehouse} clickTrash={this.clickTrash} />
+                    <WarehouseInvList
+                        warehouse={this.state.warehouse}
+                        clickTrash={this.clickTrash}
+                        {...this.props}
+                    />
                 </section>
             </section>
         );

@@ -1,8 +1,7 @@
 import Button from '../Button/Button';
 import './InventoryForm.scss';
 import { Component } from 'react';
-import { categoryList, warehouseList } from '../../utils/dropdownLists';
-import { inventoriesUrl } from '../../utils/api';
+import { inventoriesUrl, warehousesUrl } from '../../utils/api';
 import InvalidMessage from '../InvalidMessage/InvalidMessage';
 import axios from 'axios';
 
@@ -21,7 +20,9 @@ class InventoryForm extends Component {
         isValidStatus: true,
         isValidQuantity: true,
         isValidWarehouseId: true,
-        showQty: true
+        showQty: true,
+        categoriesList: [],
+        warehousesList: []
     }
 
     componentDidMount() {
@@ -47,6 +48,28 @@ class InventoryForm extends Component {
                 })
                 .catch((error) => console.error(error))
         }
+        axios.get(inventoriesUrl)
+            .then(res => {
+                const categories = res.data.map(item => item.category)
+                const uniqueCategories = [... new Set(categories)]
+                this.setState({
+                    categoriesList: uniqueCategories
+                })
+            })
+            .catch(error => console.error(error))
+        axios.get(warehousesUrl)
+            .then(res => {
+                const warehouses = res.data.map(item => {
+                    return {
+                        name: item.name,
+                        id: item.id
+                    }
+                })
+                const uniqueWarehouses = [...new Map(warehouses.map(item => [item['name'], item])).values()]
+                this.setState({
+                        warehousesList: uniqueWarehouses
+                    })
+            })
     }
 
     handleChange = (e) => {
@@ -219,9 +242,9 @@ class InventoryForm extends Component {
                                 onChange={this.handleChange}
                             >
                                 <option value='' disabled hidden>Please select</option>
-                                {categoryList.map((category) => {
+                                {this.state.categoriesList.map((category, index) => {
                                     return (
-                                        <option key={category.id} value={category.name}>{category.name}</option>
+                                        <option key={index} value={category}>{category}</option>
                                     )
                                 })}
                             </select>
@@ -284,7 +307,7 @@ class InventoryForm extends Component {
                                 onChange={this.handleChange}
                             >
                                 <option value='' disabled hidden>Please select</option>
-                                {warehouseList.map(warehouse => {
+                                {this.state.warehousesList.map(warehouse => {
                                     return (
                                         <option key={warehouse.id} value={warehouse.id}>{warehouse.name}</option>
                                     )
@@ -296,7 +319,7 @@ class InventoryForm extends Component {
                 </section>
                 {/* BUTTONS */}
                 <section className='inventory-item__form-actions'>
-                <p className='cancel-button' onClick={this.returnToPrevPage}>Cancel</p>
+                    <p className='cancel-button' onClick={this.returnToPrevPage}>Cancel</p>
                     <Button color='blue' prompt={prompt} />
                 </section>
             </form>
