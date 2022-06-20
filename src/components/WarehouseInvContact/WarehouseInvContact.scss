@@ -11,7 +11,7 @@
 
         @include tablet {
             display: flex;
-            padding: 1rem;
+            padding: 1rem 2rem;
         }
     }
     
@@ -22,7 +22,7 @@
     &__address {
 
         @include tablet {
-            width: 40%;
+            width: 36%;
             
         }
 

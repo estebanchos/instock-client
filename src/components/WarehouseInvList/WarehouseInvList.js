@@ -10,15 +10,15 @@ function WarehouseInvList({ warehouse, clickTrash }) {
                     INVENTORY ITEM
                     <img className='warehouse-inv__titles-icon'src={sort} alt='arrows'/>
                 </p>
-                <p className='warehouse-inv__titles-title warehouse-inv__titles--address'>
+                <p className='warehouse-inv__titles-title warehouse-inv__titles--category'>
                     CATEGORY
                     <img className='warehouse-inv__titles-icon' src={sort} alt='arrows'/>
                 </p>
-                <p className='warehouse-inv__titles-title warehouse-inv__titles--contact'>
+                <p className='warehouse-inv__titles-title warehouse-inv__titles--status'>
                     STATUS
                     <img className='warehouse-inv__titles-icon' src={sort} alt='arrows'/>
                 </p>
-                <p className='warehouse-inv__titles-title warehouse-inv__titles--info'>
+                <p className='warehouse-inv__titles-title warehouse-inv__titles--qty'>
                     QUANTITY
                     <img className='warehouse-inv__titles-icon' src={sort} alt='arrows'/>
                 </p>
