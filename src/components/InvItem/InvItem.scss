@@ -22,6 +22,7 @@
         @include tablet {
             width: 20%;
             padding: 0;
+            padding-left: 1rem;
         }
 
         @include desktop {
@@ -34,7 +35,7 @@
         padding-right: 1rem;
 
         @include tablet {
-            width: 20%;
+            width: 26%;
             order: 3;
         }
 
@@ -61,7 +62,7 @@
         padding-right: 1rem;
 
         @include tablet {
-            width: 15%;
+            width: 18.5%;
             order: 4;
         }
     }
@@ -74,7 +75,7 @@
 
         @include tablet {
             justify-content: flex-end;
-            width: 20%;
+            width: 10%;
             align-items: baseline;
             padding: 0;
             order: 5;
@@ -85,7 +86,8 @@
         }
 
         &--icon {
-
+            cursor: pointer;
+            
             @include tablet {
                 padding-left: 1rem;
             }

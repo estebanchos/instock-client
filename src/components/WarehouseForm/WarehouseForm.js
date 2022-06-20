@@ -175,14 +175,8 @@ class WarehouseForm extends Component {
                 const editWarehouseUrl = `${warehousesUrl}${this.state.warehouseId}/edit`
                 axios.put(editWarehouseUrl, newWarehouse)
                     .then(_res => {
-<<<<<<< HEAD
                         this.showMessage()
                         setTimeout(() => this.returnToPrevPage(), 1000)})
-=======
-                        // show confirmation
-                        setTimeout(() => this.returnToPrevPage(), 1000)
-                    })
->>>>>>> ccc658860f8a9b2cb44fb56ddb813095d9ccb806
                     .catch(err => console.error("Unable to update: ", err))
             } else {
                 const newWarehouseUrl = `${warehousesUrl}new`

@@ -64,6 +64,7 @@
 @mixin cancel-button-style {
   background-color: $white;
   color: $slate;
+  cursor: pointer;
   @include button-nav-style;
   border: 1px solid $cloud;
   margin: 0;

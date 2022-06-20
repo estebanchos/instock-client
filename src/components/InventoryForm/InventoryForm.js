@@ -52,7 +52,7 @@ class InventoryForm extends Component {
         axios.get(inventoriesUrl)
             .then(res => {
                 const categories = res.data.map(item => item.category)
-                const uniqueCategories = [... new Set(categories)]
+                const uniqueCategories = [...new Set(categories)]
                 this.setState({
                     categoriesList: uniqueCategories
                 })
