@@ -60,8 +60,6 @@ class WarehouseDetails extends Component {
                 this.hideModal()
             })
             .catch(err => console.error(err))
-    }     
-        
     }
 
     clickTrash = (e) => {
