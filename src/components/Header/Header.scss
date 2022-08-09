@@ -11,8 +11,9 @@
     padding: 1rem;
 
     @include tablet {
+        padding: 2rem 1rem;
         flex-direction: row;
-        align-items: center;
+        align-items: flex-start;
     }
 
     &__logo {
@@ -25,7 +26,11 @@
 
     &__nav {
         width: 100%;
-        padding: 1rem 0;
+        padding: 1rem 0 4rem 0;
+
+        @include tablet {
+            padding: 0 0 4rem 0;
+        }
 
         @include desktop {
             padding-right: 8rem;
@@ -41,16 +46,10 @@
             justify-content: end;
         }
     }
-    &__nav-container {
-        display: flex;
-        width: 50%;
-        @include tablet {
-            width: auto;
-        }
-    }
+
     &__nav-item {
         padding: 0.5rem 2rem;
-        width: 100%;
+        width: 50%;
         text-align: center;
         border-radius: 20px;
         font-size: $m-h3-text-size;

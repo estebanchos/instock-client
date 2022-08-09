@@ -335,7 +335,7 @@ class InventoryForm extends Component {
                 </div>
                 {/* BUTTONS */}
                 <section className='inventory-item__form-actions'>
-                    <p className='cancel-button' onClick={this.returnToPrevPage}>Cancel</p>
+                    <Button prompt='Cancel' className='cancel-button' onClick={this.returnToPrevPage} />
                     <Button color='blue' prompt={prompt} />
                 </section>
             </form>

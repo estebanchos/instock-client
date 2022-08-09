@@ -7,7 +7,7 @@
     &--action {
         background-color: $instock-indigo;
         color: $white;
-        @include button-nav-style;
+        // @include button-nav-style;
 
         &:hover {
             background-color: $graphite;
@@ -17,7 +17,7 @@
     &--delete {
         background-color: $red;
         color: $white;
-        @include button-nav-style;
+        // @include button-nav-style;
 
         &:hover {
             background-color: $graphite;
@@ -27,7 +27,7 @@
     &--cancel {
         background-color: $white;
         color: $slate;
-        @include button-nav-style;
+        // @include button-nav-style;
         border: 1px solid $cloud;
 
         &:hover {

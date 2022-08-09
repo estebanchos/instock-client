@@ -73,7 +73,7 @@ label {
 
 .input-type {
     &__input {
-        @include input-style;
+        // @include input-style;
         border: 1px solid $cloud;
 
         &::placeholder {
@@ -82,19 +82,19 @@ label {
         }
 
         &--error {
-            @include input-style;
+            // @include input-style;
             border: 1px solid $red;
         }
     }
 }
 
 .cancel-button {
-    @include cancel-button-style;
+    // @include cancel-button-style;
     margin-right: 1rem;
 
     @include tablet {
         margin-right: 0;
-        @include cancel-button-style;
+        // @include cancel-button-style;
     }
 }
 
