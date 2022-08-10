@@ -1,7 +1,7 @@
 # InStock
 
-A comprehensive inventory tracking system. Should be run locally with ServerSide repo. 
-Server-Side URL: https://github.com/sstockall/instock-project-server
+A comprehensive inventory tracking system. Should be run locally with ServerSide repo.\
+ServerSide URL: https://github.com/sstockall/instock-project-server
 
 Tech Stack: React, JavaScript, HTML, CSS, Node, Express
 
