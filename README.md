@@ -1,6 +1,9 @@
-# Getting Started with Create React App
+# InStock
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A comprehensive inventory tracking system. Should be run locally with ServerSide repo. 
+Server-Side URL: https://github.com/sstockall/instock-project-server
+
+Tech Stack: React, JavaScript, HTML, CSS, Node, Express
 
 ## Available Scripts
 
