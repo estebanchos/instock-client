@@ -69,8 +69,8 @@ Clone repo locally:
 `npm run dev`
 
 ## Lessons Learned
-* D
-* T
+* Descriptive and meaningful commit and/or comment messages are essential to the success of a team and of utmost importance in a collaborative development environment.
+* When in charge of reviewing PRs, it’s important to set clear expectations for yourself and your teammates about getting your own tasks as well as the PRs done. There’s no need to rush and/or abandon your own workflow to jump to a PR as long as everyone is kept in the loop and everything is completed in a reasonable time frame.
 
 ## Contact Info
 
